@@ -35,38 +35,81 @@ class NuclideTest(unittest.TestCase):
 
     def test_element_isotopic_data(self):
         PT = PeriodicTable()
-        # Deuterium
         iso_H = PT.element_isotopic_data(1)
+        iso_F = PT.element_isotopic_data(9)
+        iso_Tc = PT.element_isotopic_data(43)
+        iso_U = PT.element_isotopic_data(92)
+
+        # Deuterium
         self.assertEqual(iso_H[2]['atomic number'], 1)
         self.assertEqual(iso_H[2]['atomic symbol'], 'D')
         self.assertEqual(iso_H[2]['isotopic abundance'], 0.000115)
         self.assertEqual(iso_H[2]['atomic mass'], 2.01410177812)
-        # self.assertEqual(iso_H['atomic weight'], 1.007975)
-        # self.assertTrue(iso_H['stable'])
         # Fluorine-19
-        iso_F = PT.element_isotopic_data(9)
         self.assertEqual(iso_F[19]['atomic number'], 9)
         self.assertEqual(iso_F[19]['atomic symbol'], 'F')
         self.assertEqual(iso_F[19]['isotopic abundance'], 1.0)
         self.assertEqual(iso_F[19]['atomic mass'], 18.99840316273)
-        # self.assertEqual(iso_F['atomic weight'], 18.998403163)
-        # self.assertTrue(iso_F['stable'])
         # Technetium-100
-        isoTc = PT.element_isotopic_data(43)
-        self.assertEqual(isoTc[100]['atomic number'], 43)
-        self.assertEqual(isoTc[100]['atomic symbol'], 'Tc')
-        self.assertEqual(isoTc[100]['isotopic abundance'], 0.0)
-        self.assertEqual(isoTc[100]['atomic mass'], 99.9076539)
-        # self.assertEqual(isoTc['atomic weight'], 97.9072124)
-        # self.assertFalse(isoTc['stable'])
+        self.assertEqual(iso_Tc[100]['atomic number'], 43)
+        self.assertEqual(iso_Tc[100]['atomic symbol'], 'Tc')
+        self.assertEqual(iso_Tc[100]['isotopic abundance'], 0.0)
+        self.assertEqual(iso_Tc[100]['atomic mass'], 99.9076539)
         # Uranium-235
-        iso_U = PT.element_isotopic_data(92)
         self.assertEqual(iso_U[235]['atomic number'], 92)
         self.assertEqual(iso_U[235]['atomic symbol'], 'U')
         self.assertEqual(iso_U[235]['isotopic abundance'], 0.007204)
         self.assertEqual(iso_U[235]['atomic mass'], 235.0439301)
-        # self.assertEqual(iso_U['atomic weight'], 238.02891)
-        # self.assertTrue(iso_U['stable'])
+
+    def test_get_repr_isotope(self):
+        PT = PeriodicTable()
+        iso_H = PT.element_isotopic_data(1)
+        iso_F = PT.element_isotopic_data(9)
+        iso_Tc = PT.element_isotopic_data(43)
+        iso_U = PT.element_isotopic_data(92)
+        rpr_iso = PT.get_representative_isotope
+        self.assertEqual(rpr_iso(iso_H), 1)
+        self.assertEqual(rpr_iso(iso_F), 19)
+        self.assertEqual(rpr_iso(iso_Tc), 98)
+        self.assertEqual(rpr_iso(iso_U), 238)
+
+    def test_elemtent_stability(self):
+        PT = PeriodicTable()
+        iso_H = PT.element_isotopic_data(1)
+        iso_F = PT.element_isotopic_data(9)
+        iso_Tc = PT.element_isotopic_data(43)
+        iso_U = PT.element_isotopic_data(92)
+        self.assertTrue(PT.elemtent_stability(iso_H))
+        self.assertTrue(PT.elemtent_stability(iso_F))
+        self.assertFalse(PT.elemtent_stability(iso_Tc))
+        self.assertTrue(PT.elemtent_stability(iso_U))
+
+    def test_atomic_weight(self):
+        PT = PeriodicTable()
+        iso_H = PT.element_isotopic_data(1)
+        iso_F = PT.element_isotopic_data(9)
+        iso_Tc = PT.element_isotopic_data(43)
+        iso_U = PT.element_isotopic_data(92)
+        aw = PT.atomic_weight
+        self.assertEqual(aw(iso_H, 'range'), 1.007975)
+        self.assertEqual(aw(iso_F, 'range'), 18.998403163)
+        self.assertEqual(aw(iso_Tc, 'range'), 97.9072124)
+        self.assertEqual(aw(iso_U, 'range'), 238.02891)
+
+        self.assertEqual(aw(iso_H, 'average'), 1.0079407540557772)
+        self.assertEqual(aw(iso_F, 'average'), 18.99840316273)
+        self.assertEqual(aw(iso_Tc, 'average'), 97.9072124)
+        self.assertEqual(aw(iso_U, 'average'), 238.0289104616574)
+
+    def test_elements(self):
+        PT = PeriodicTable()
+        elements = PT.get_elements()
+        self.assertEqual(elements['H']['atomic number'], 1)
+        self.assertEqual(elements['He']['representing isotope'], 4)
+        self.assertEqual(elements['C']['representing mass'], 12.0)
+        self.assertFalse(elements['At']['is stable'])
+        self.assertEqual(elements['Cl']['atomic symbol'], 'Cl')
+        self.assertEqual(elements['U']['atomic weight'], 238.0289104616574)
 
 
 if __name__ == '__main__':
