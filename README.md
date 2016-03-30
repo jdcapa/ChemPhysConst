@@ -18,7 +18,7 @@ Usage
 
 In your python import section put:
 
-`from periodic_table.nuclides import PeriodicTable`
+`from periodic_table.periodictable import PeriodicTable`
 
 Initialise:
 

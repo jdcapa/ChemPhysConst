@@ -1,9 +1,9 @@
 import unittest
 
-from periodic_table.nuclides import PeriodicTable
+from periodic_table.periodictable import PeriodicTable
 
 
-class NuclideTest(unittest.TestCase):
+class PeriodicTableTest(unittest.TestCase):
 
     def dict_contains(self, dictionary, low=1, high=92):
         '''
