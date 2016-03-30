@@ -8,7 +8,6 @@ import os
 # from __future__ import unicode_literals
 
 DATAFILE = os.path.join("data", "2015_mass_weight_abundance.dat")
-# DATAFILE = "2015_mass_weight_abundance.dat"
 
 
 class PeriodicTable(object):
@@ -16,11 +15,10 @@ class PeriodicTable(object):
     def __init__(self):
         super(PeriodicTable, self).__init__()
         self.data = self.read_data_file()
-        self.atomic_numbers = self.element_map()
 
-    def element_map(self):
+    def atomic_number_to_symbol(self):
         """
-        Returns a dictionary mapping the atomic symbols to the atomic
+        Returns a dictionary mapping the atomic numbers to  the symbols.
         """
         re_atomic_number = re.compile('Atomic Number = (\d+)')
         re_atomic_symbol = re.compile('Atomic Symbol = (\w+)')
@@ -29,10 +27,17 @@ class PeriodicTable(object):
             if re_atomic_number.search(line):
                 num = int(re_atomic_number.search(line).group(1))
             if re_atomic_symbol.search(line):
-                sym = re_atomic_symbol.search(line).group(1)
+                sy = re_atomic_symbol.search(line).group(1)
                 if num not in element_map:
-                    element_map[num] = sym
+                    element_map[num] = sy
         return element_map
+
+    def symbol_to_atomic_number(self):
+        """
+        Returns a dictionary mapping the the atomic symbols to the numbers.
+        """
+        an_to_sy = self.atomic_number_to_symbol()
+        return dict((sy, an) for an, sy in an_to_sy.items())
 
     def element_isotopic_data(self, atomic_num):
         '''
