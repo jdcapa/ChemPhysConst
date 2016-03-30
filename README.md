@@ -44,8 +44,8 @@ as well as their isotopes:
 
 ```python
 iso_Cl = elements['Cl']['isotopes']     # A dictionary of all isotopes
-iso_Cl[35]['atomic mass']               # Atomic mass of a certain isotopes
-iso_Cl[37]['isotopic abundance']        # Isotopic abundance 
+iso_Cl[35]['atomic mass']               # Atomic mass of a certain isotope
+iso_Cl[37]['isotopic abundance']        # Isotopic abundance (0 < a <= 1)
                                         # (if this is exactly zero it is unstable)
 ```
 
