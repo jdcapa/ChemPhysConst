@@ -2,7 +2,7 @@
 
 from __future__ import print_function
 from __future__ import division
-# from __future__ import unicode_literals
+from __future__ import unicode_literals
 import sys
 import re
 import os
@@ -163,6 +163,7 @@ class Element(object):
 class PeriodicTableNIST(object):
     """
     Reads the Periodic Table information from the provided NIST DATAFILE
+    This is slow! Hence this is only used for the initial database creation.
       Variables: an_to_sy, sy_to_an
       Methods: element(mass_number or symbol)
     """
@@ -214,8 +215,7 @@ class PeriodicTableNIST(object):
         """
         Returns a dictionary mapping the the atomic symbols to the numbers.
         """
-        an_to_sy = self.atomic_number_to_symbol()
-        return OrderedDict((sy, an) for an, sy in an_to_sy.items())
+        return OrderedDict((sy, an) for an, sy in self.an_to_sy.items())
 
     def element_isotopic_data(self, atomic_num):
         '''
@@ -289,25 +289,81 @@ class PeriodicTableNIST(object):
         return data.split('\n')
 
 
-# class PeriodicTable(PeriodicTableNIST):
-#     """
-#     Reads the Periodic Table information from the provided NIST DATAFILE
-#     """
+class PeriodicTable(object):
+    """
+    Reads the Periodic Table information from the provided HDF5 DATAFILE
+    """
 
-#     def __init__(self):
-#         super(PeriodicTable, self).__init__()
-#         if os.path.exists(YAMLFILE):
-#             self.elements = self.read_yaml_file()
-#         else:
-#             sys.exit("The file {} is missing.".format(YAMLFILE))
+    def __init__(self):
+        super(PeriodicTable, self).__init__()
+        if os.path.exists(HDF5FILE):
+            self.hdf5 = h5py.File(HDF5FILE, mode='r')
+            self.an_to_sy = self.atomic_number_to_symbol()
+            self.sy_to_an = self.symbol_to_atomic_number()
+        else:
+            sys.exit("The file {} is missing.".format(HDF5FILE))
 
-#     def read_yaml_file(self):
-#         """
-#         Imports the generated yaml version of the Periodic table data
-#         """
-#         with open(HDF5FILE,) as yaml_in:
-#             elements = yaml.load(yaml_in)
-#         return elements
+    def __del__(self):
+        self.hdf5.close()
+
+    def atomic_number_to_symbol(self):
+        """
+        Returns a dictionary mapping the atomic numbers to the symbols.
+        """
+        el_map = [[el.attrs['number'], sy] for sy, el in self.hdf5.items()]
+        el_map.sort(key=operator.itemgetter(0))
+        return OrderedDict(el_map)
+
+    def symbol_to_atomic_number(self):
+        """
+        Returns a dictionary mapping the the atomic symbols to the numbers.
+        """
+        return OrderedDict((sy, an) for an, sy in self.an_to_sy.items())
+
+    def element(self, element):
+        """
+        Imports the generated hdf5 version of the Periodic table data
+        We are reading:
+            Nuclides:
+                atomic_symbol:      str
+                atomic_number:      int
+                mass_number:        int
+                atomic_mass:        float
+                abundance:          float
+            Elements:
+                symbol:             str
+                number:             int
+                isotopes:           Nuclides()
+                atomic_weight_str:  str
+        """
+        try:
+            if type(element) is INT:
+                sy = self.an_to_sy[element]
+                an = element
+            elif type(element) is str:
+                sy = element
+                an = self.sy_to_an[element]
+        except KeyError as e:
+            raise e("get_element_properties() requires either int or str type."
+                    " {} was provided.".format(type(element)))
+
+        el = self.hdf5[sy].attrs
+        aw_str = el['atomic_weight_str']
+        isotopes = []
+        # print(self.hdf5[sy]['2'].attrs['atomic_symbol'])
+        # sys.exit()
+        for mn in self.hdf5[sy].keys():
+            iso = self.hdf5[sy][mn].attrs
+            mass_number = INT(mn)
+            atomic_symbol = iso['atomic_symbol']
+            atomic_num = iso['atomic_number']
+            atomic_mass = iso['atomic_mass']
+            isotopic_abund = iso['abundance']
+            isotope = Nuclide(atomic_symbol, atomic_num, mass_number,
+                              atomic_mass=atomic_mass,
+                              abundance=isotopic_abund)
+            isotopes.append(isotope)
+        return Element(sy, an, isotopes=isotopes, atomic_weight_str=aw_str)
 
 
 class ExportPeriodicTableNIST(object):
@@ -320,7 +376,8 @@ class ExportPeriodicTableNIST(object):
 
     def print_masses_cpp_array(self):
         """
-        Prints the representative masses
+        Prints the representative masses for export to an ugly C++ array.
+        I'm looking at you Orca!
         """
         header = "    //{0:^10}       {1:^3}  {2:<4}   {3:^12}\n".format(
                 "m[a]", "Z", "Sy", "<m[a]>")
@@ -335,7 +392,7 @@ class ExportPeriodicTableNIST(object):
 
     def export_elements_to_hdf5(self):
         """
-        Writes a hdf5 file dumping the elements dictionary, which should
+        Writes a hdf5 file dumping the elements data, which should
          speed up subsequent loading of the element data.
         We are dumping:
             Nuclides:
@@ -350,8 +407,19 @@ class ExportPeriodicTableNIST(object):
                 isotopes:           Nuclides()
                 atomic_weight_str:  str
         """
-        hdf5 = h5py.File(HDF5FILE, "w")
+        hdf5 = h5py.File(HDF5FILE, mode='w')
         for an, sy in self.PTN.an_to_sy.items():
             el = self.PTN.element(an)
             el_grp = hdf5.create_group(sy)
-            el_grp.create_dataset()
+            el_grp.attrs.create('symbol', sy)
+            el_grp.attrs.create('number', an)
+            el_grp.attrs.create('atomic_weight_str', el.atomic_weight_str)
+            for isotope in el.isotopes:
+                iso_grp = el_grp.create_group(str(isotope.mass_number))
+                iso_grp.attrs.create('atomic_symbol', isotope.atomic_symbol)
+                iso_grp.attrs.create('atomic_number', isotope.atomic_number)
+                iso_grp.attrs.create('mass_number', isotope.mass_number)
+                iso_grp.attrs.create('atomic_mass', isotope.atomic_mass)
+                iso_grp.attrs.create('abundance', isotope.abundance)
+        hdf5.flush()
+        hdf5.close()

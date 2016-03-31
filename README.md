@@ -7,7 +7,8 @@ A small python library allowing access to atomic weights and isotopic
 Installation *(not yet working)*
 ------------
 
-**Requirements:** Python 2.7, pip
+**Requirements:** Python 2.7, pip,
+ [hd5py](http://docs.h5py.org/en/latest/index.html)
 
 Simply use pip to install the periodic table python library:
 
@@ -18,11 +19,11 @@ Usage
 
 In your python import section put:
 
-`from periodic_table.periodictable import PeriodicTableNIST`
+`from periodic_table.periodictable import PeriodicTable`
 
 Initialise:
 
-`PT = PeriodicTableNIST()`
+`PT = PeriodicTable()`
 
 where PT contains the dictionaries
 ```python
