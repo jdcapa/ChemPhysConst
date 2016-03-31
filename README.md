@@ -19,13 +19,18 @@ Usage
 
 In your python import section put:
 
-`from periodic_table.periodictable import PeriodicTable`
+```python
+from periodic_table.periodictable import PeriodicTable
+```
 
 Initialise:
 
-`PT = PeriodicTable()`
+```python
+PT = PeriodicTable()
+```
 
 where PT contains the dictionaries
+
 ```python
 PT.an_to_sy  # mapping all the atomic numbers to the symbols
 PT.sy_to_an  # mapping all the symbols to the atomic numbers
@@ -43,7 +48,6 @@ el_U = PT.element('U')  # Uranium
 The elements contains loads of properties themselves:
 
 ```python
-
 el_H.symbol                 # atomic number
 el_F.number                 # atomic symbol
 el_Tc.mass                  # The mass of the 'representing' isotope
