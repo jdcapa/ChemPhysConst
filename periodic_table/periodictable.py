@@ -193,7 +193,7 @@ class PeriodicTableNIST(object):
 
     def atomic_number_to_symbol(self):
         """
-        Returns a dictionary mapping the atomic numbers to  the symbols.
+        Returns a dictionary mapping the atomic numbers to the symbols.
         """
         re_atomic_number = re.compile('Atomic Number = (\d+)')
         re_atomic_symbol = re.compile('Atomic Symbol = (\w+)')
@@ -332,3 +332,26 @@ class ExportPeriodicTableNIST(object):
             tmp_str += " {:>12,.8f}\n".format(elem.weight)
             header += tmp_str
         print(header)
+
+    def export_elements_to_hdf5(self):
+        """
+        Writes a hdf5 file dumping the elements dictionary, which should
+         speed up subsequent loading of the element data.
+        We are dumping:
+            Nuclides:
+                atomic_symbol:      str
+                atomic_number:      int
+                mass_number:        int
+                atomic_mass:        float
+                abundance:          float
+            Elements:
+                symbol:             str
+                number:             int
+                isotopes:           Nuclides()
+                atomic_weight_str:  str
+        """
+        hdf5 = h5py.File(HDF5FILE, "w")
+        for an, sy in self.PTN.an_to_sy.items():
+            el = self.PTN.element(an)
+            el_grp = hdf5.create_group(sy)
+            el_grp.create_dataset()
