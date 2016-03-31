@@ -61,9 +61,9 @@ as well as their isotopes (through the PT.elements().isotopes() method):
 
 ```python
 iso_D = PT.element(1).isotope(2)
-iso_F = PT.element(9).isotope(19)
+iso_F = PT.element('F').isotope(19)
 iso_Tc = PT.element(43).isotope(100)
-iso_U = PT.element(92).isotope(235)
+iso_U = PT.element('U').isotope(235)
 ```
 
 which in turn have properties:
