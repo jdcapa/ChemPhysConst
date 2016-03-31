@@ -26,8 +26,8 @@ Initialise:
 
 where PT contains the dictionaries
 ```python
-an_to_sy  # mapping all the atomic numbers to the symbols
-sy_to_an  # mapping all the symbols to the atomic numbers
+PT.an_to_sy  # mapping all the atomic numbers to the symbols
+PT.sy_to_an  # mapping all the symbols to the atomic numbers
 ```
 
 Access elements via the PT.elements() method:
