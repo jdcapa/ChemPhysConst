@@ -100,8 +100,8 @@ setup(
     # installed, specify them here.  If using Python 2.6 or less, then these
     # have to be included in MANIFEST.in as well.
     package_data={
-        'dat': ['data/*.dat'],
-        'hdf5': ['data/*.hdf5']
+        'dat': ['periodic_table/data/*.dat'],
+        'hdf5': ['periodic_table/data/*.hdf5']
     },
 
     # Although 'package_data' is the preferred approach, in some case you may
