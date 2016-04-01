@@ -2,7 +2,7 @@
 
 from __future__ import print_function
 from __future__ import division
-from __future__ import unicode_literals
+# from __future__ import unicode_literals  # This breaks the rb+ writing
 import sys
 import re
 import os
@@ -22,6 +22,7 @@ class Nuclide(object):
     This contains properties of a given nuclide
       Var: atomic_symbol, atomic_number, mass_number, atomic_mass, abundance
     """
+
     def __init__(self, sy, an, mn, **kwargs):
         super(Nuclide, self).__init__()
         self.atomic_symbol = sy
@@ -58,6 +59,7 @@ class Element(object):
       Variables: symbol, number, mass, weight, representing_isotope, is_stable
       Methods: isotope(mass_number)
     """
+
     def __init__(self, sy, an, **kwargs):
         super(Element, self).__init__()
         self.symbol = sy
@@ -163,7 +165,8 @@ class Element(object):
 class PeriodicTableNIST(object):
     """
     Reads the Periodic Table information from the provided NIST DATAFILE
-    This is slow! Hence this is only used for the initial database creation.
+    This is slow and ugly! Hence this is only used for the initial database
+    creation.
       Variables: an_to_sy, sy_to_an
       Methods: element(mass_number or symbol)
     """
@@ -370,6 +373,7 @@ class ExportPeriodicTableNIST(object):
     """
     This class harbours the export functions for the PeriodicTable class
     """
+
     def __init__(self):
         super(ExportPeriodicTableNIST, self).__init__()
         self.PTN = PeriodicTableNIST()
@@ -380,7 +384,7 @@ class ExportPeriodicTableNIST(object):
         I'm looking at you Orca!
         """
         header = "    //{0:^10}       {1:^3}  {2:<4}   {3:^12}\n".format(
-                "m[a]", "Z", "Sy", "<m[a]>")
+            "m[a]", "Z", "Sy", "<m[a]>")
         for an, sy in self.PTN.an_to_sy.items():
             elem = self.PTN.element(an)
             tmp_str = "    {:<15}".format(str(elem.mass) + ",")
@@ -407,7 +411,19 @@ class ExportPeriodicTableNIST(object):
                 isotopes:           Nuclides()
                 atomic_weight_str:  str
         """
-        hdf5 = h5py.File(HDF5FILE, mode='w')
+        userblock_size = 512
+        user_block_string = ("PeriodicTable data created from the \n" +
+                             "Atomic Weights and Isotopic Compositions for " +
+                             "All Elements compilation (2015)\n" +
+                             "http://www.nist.gov/pml/data/comp.cfm\n" +
+                             "Created by the PeriodicTable Library:\n" +
+                             "https://github.com/jdcapa/PeriodicTable\n")
+
+        if userblock_size < len(user_block_string):
+            sys.exit('userblock_size is too small')
+        hdf5 = h5py.File(HDF5FILE, mode='w', userblock_size=userblock_size)
+        hdf5 = self.write_header(hdf5)
+
         for an, sy in self.PTN.an_to_sy.items():
             el = self.PTN.element(an)
             el_grp = hdf5.create_group(sy)
@@ -423,3 +439,18 @@ class ExportPeriodicTableNIST(object):
                 iso_grp.attrs.create('abundance', isotope.abundance)
         hdf5.flush()
         hdf5.close()
+        with open(HDF5FILE, 'rb+') as hdf5_ub:
+            hdf5_ub.write(user_block_string)
+
+    def write_header(self, f):
+        """
+        Adds some root attributes to an hdf5 object
+        """
+        from time import gmtime, strftime
+
+        f.attrs['file_name'] = os.path.basename(HDF5FILE)
+        f.attrs['file_time'] = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+        f.attrs['creator'] = 'periodictable.py'
+        f.attrs['HDF5_Version'] = h5py.version.hdf5_version
+        f.attrs['h5py_version'] = h5py.version.version
+        return f
