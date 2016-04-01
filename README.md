@@ -3,9 +3,9 @@ PeriodicTable
 
 A small python library allowing access to atomic weights and isotopic
  compositions for all known chemical elements.
-It is meant to be lightweight and fast due to the hdf5 database. 
+It is meant to be lightweight and fast due to the hdf5 database.
 
-Installation *(not yet working)*
+Installation
 ------------
 
 **Requirements:** Python 2.7, pip,
@@ -13,7 +13,7 @@ Installation *(not yet working)*
 
 Simply use pip to install the periodic table python library:
 
-    $ pip install https://github.com/jdcapa/PeriodicTable
+    $ pip install --user git+https://github.com/jdcapa/PeriodicTable
 
 Usage
 -----
