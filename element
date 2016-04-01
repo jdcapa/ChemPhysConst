@@ -1,0 +1,42 @@
+#!/usr/bin/env python
+from __future__ import print_function
+from __future__ import unicode_literals
+import argparse
+import operator
+from periodic_table.periodictable import PeriodicTable
+
+program_description = 'Small scripts that returns element details'
+parser = argparse.ArgumentParser(description=program_description)
+
+parser.add_argument('input',
+                    metavar='atomic symbol',
+                    type=str,
+                    help='Returns data for this element')
+args = parser.parse_args()
+
+PT = PeriodicTable()
+element = PT.element(args.input)
+
+element_info = """
+  Symbol:                 {0.symbol}
+  Number:                 {0.number}
+  Atomic Mass:            {0.mass}
+  Atomic Weight:          {0.weight:.4f}
+  Representing Isotope:   {0.representing_isotope.mass_number}
+  Stable:                 {0.is_stable}""".format(element)
+
+iso_info = """
+    Mass Number:          {0.mass_number}
+    Atomic Mass:          {0.atomic_mass}
+    Abundance:            {0.abundance}"""
+
+print(element_info[1:])
+
+if element.is_stable:
+    print('  Stable isotopes:')
+    isos = [(iso.abundance, iso.mass_number) for iso in element.isotopes]
+    isos.sort(key=operator.itemgetter(0))
+    for iso in reversed(isos):
+        isotope = element.isotope(iso[1])
+        if isotope.abundance > 0.0:
+            print (iso_info.format(isotope))
