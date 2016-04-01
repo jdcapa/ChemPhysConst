@@ -83,8 +83,8 @@ setup(
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
     install_requires=[
-        'hdf5py',
-        'numpy'
+        # 'hdf5py',
+        # 'numpy'
     ],
 
     # List additional groups of dependencies here (e.g. development
