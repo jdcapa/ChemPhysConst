@@ -1,8 +1,5 @@
 MANIFEST.in
 setup.py
-data/2015_mass_weight_abundance.dat
-data/2015_mass_weight_abundance.hdf5
-data/__init__.py
 periodic_table/__init__.py
 periodic_table/create_hdf5_database.py
 periodic_table/periodictable.py
@@ -11,3 +8,4 @@ periodic_table.egg-info/SOURCES.txt
 periodic_table.egg-info/dependency_links.txt
 periodic_table.egg-info/not-zip-safe
 periodic_table.egg-info/top_level.txt
+periodic_table/data/__init__.py

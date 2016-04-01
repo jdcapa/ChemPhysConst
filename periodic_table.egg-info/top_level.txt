@@ -1,2 +1,1 @@
-data
 periodic_table
