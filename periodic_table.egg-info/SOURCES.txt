@@ -9,5 +9,6 @@ periodic_table/periodictable.py
 periodic_table.egg-info/PKG-INFO
 periodic_table.egg-info/SOURCES.txt
 periodic_table.egg-info/dependency_links.txt
+periodic_table.egg-info/not-zip-safe
 periodic_table.egg-info/requires.txt
 periodic_table.egg-info/top_level.txt
