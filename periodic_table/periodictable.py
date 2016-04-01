@@ -13,8 +13,9 @@ import numpy as np
 
 INT = np.int
 FLOAT = np.float
-DATAFILE = os.path.join("data", "2015_mass_weight_abundance.dat")
-HDF5FILE = os.path.join("data", "2015_mass_weight_abundance.hdf5")
+here = os.path.dirname(__file__)
+DATAFILE = os.path.join(here, "data", "2015_mass_weight_abundance.dat")
+HDF5FILE = os.path.join(here, "data", "2015_mass_weight_abundance.hdf5")
 
 
 class Nuclide(object):
