@@ -1,6 +1,6 @@
 from __future__ import print_function
 from __future__ import division
-# from __future__ import unicode_literals  # This breaks the rb+ writing
+# from __future__ import unicode_literals  # This breaks the rb+ writing (hdf5)
 import sys
 import re
 import os
