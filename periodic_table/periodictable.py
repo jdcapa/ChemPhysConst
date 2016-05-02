@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 """This module contains all the nuclide and element specific classes."""
 
 from __future__ import print_function
@@ -15,6 +16,7 @@ INT = np.int
 FLOAT = np.float
 here = os.path.dirname(__file__)
 DATAFILE = os.path.join(here, "data", "2015_mass_weight_abundance.dat")
+ELEMFILE = os.path.join(here, "data", "elements.csv")
 HDF5FILE = os.path.join(here, "data", "2015_mass_weight_abundance.hdf5")
 
 
@@ -56,7 +58,21 @@ class Element(object):
     """
     This contains properties of a given element.
 
-    Variables: symbol, number, mass, weight, representing_isotope, is_stable
+    Variables: symbol, number, representing_isotope, name, type, group, period
+    Properties: is_stable (True|False)
+                mass (in u)
+                weight (in u)
+                density (in g/cm^3)
+                melting_point (in K)
+                boiling_point (in K)
+                electro_negativity (Pauling scale)
+                abundance_crust (in mg/kg)
+                covalent_r_single (in pm)
+                covalent_r_double (in pm)
+                covalent_r_triple (in pm)
+                vdW_r (in pm)
+                e_config (html string)
+
     Methods: isotope(mass_number)
     """
 
@@ -77,14 +93,30 @@ class Element(object):
 
         Adds atomic mass, isotopic abundance and if it is stable.
         """
-        if "isotopes" in kwargs:
-            self.isotopes = kwargs["isotopes"]
-        else:
-            self.isotopes = []
-        if "atomic_weight_str" in kwargs:
-            self.atomic_weight_str = kwargs["atomic_weight_str"]
-        else:
-            self.atomic_weight_str = ''
+        def check_kwargs_for(keyword, default):
+            if keyword in kwargs:
+                if kwargs[keyword]:
+                    return kwargs[keyword]
+            return default
+
+        self.isotopes = check_kwargs_for("isotopes", [])
+        self.atomic_weight_str = check_kwargs_for("atomic_weight_str", "")
+        self.name = check_kwargs_for("name", "")
+        self.element_type = check_kwargs_for("element_type", "unknown")
+        self.group = check_kwargs_for("group", 0)
+        self.period = check_kwargs_for("period", 0)
+        self.density = check_kwargs_for("density", 0.0)
+        self.melting_point = check_kwargs_for("melting_point", 0.0)
+        self.boiling_point = check_kwargs_for("boiling_point", 0.0)
+        self.electro_negativity = check_kwargs_for("electro_negativity", 0.0)
+        self.abundance_crust = check_kwargs_for("abundance_crust", 0.0)
+        # Covalent Bond distances according to Pyykkö
+        self.covalent_r_single = check_kwargs_for("covalent_r_single", 150.0)
+        self.covalent_r_double = check_kwargs_for("covalent_r_double", 0.0)
+        self.covalent_r_triple = check_kwargs_for("covalent_r_triple", 0.0)
+        # Misc
+        self.vdW_r = check_kwargs_for("vdW_r", 2.00)
+        self.e_config = check_kwargs_for("e_config", "")
 
     def isotope(self, mass_number):
         """Return an nuclide object of a given isotope."""
@@ -167,6 +199,8 @@ class PeriodicTableNIST(object):
     """
     Reads the Periodic Table information from the provided NIST DATAFILE.
 
+    Furthermore it gets additional element data from a self-curated
+     'elements.csv' file.
     This is slow and ugly! Hence this is only used for the initial database
     creation.
       Variables: an_to_sy, sy_to_an
@@ -178,6 +212,7 @@ class PeriodicTableNIST(object):
         super(PeriodicTableNIST, self).__init__()
         self.an_to_sy = self.atomic_number_to_symbol()
         self.sy_to_an = self.symbol_to_atomic_number()
+        self.element_properties = self.interpret_properties()
 
     def element(self, element):
         """
@@ -197,7 +232,10 @@ class PeriodicTableNIST(object):
                     " {} was provided.".format(type(element)))
 
         isotopes, aw_str = self.element_isotopic_data(an)
-        return Element(sy, an, isotopes=isotopes, atomic_weight_str=aw_str)
+        kwargs = self.element_properties[an]
+        kwargs["isotopes"] = isotopes
+        kwargs["atomic_weight_str"] = aw_str
+        return Element(sy, an, **kwargs)
 
     def atomic_number_to_symbol(self):
         """Return a dictionary mapping the atomic numbers to the symbols."""
@@ -293,6 +331,59 @@ class PeriodicTableNIST(object):
             data = data_raw.read()
         return data.split('\n')
 
+    def read_properties_file(self):
+        """Return the comma separated data from the ELEMFILE."""
+        with open(ELEMFILE) as data_raw:
+            data = data_raw.read()
+        return [line.strip().split(',') for line in data.split('\n')[2:]
+                if line.strip().split(',')]
+
+    def interpret_properties(self):
+        """Interpret the property list and return an OrderedDict."""
+        def check_type(entry, convert_type):
+            try:
+                return convert_type(entry)
+            except:
+                return None
+
+        raw_prop = self.read_properties_file()
+        prop = OrderedDict()
+        for line in raw_prop:
+            if len(line) < 17:
+                continue
+            z = check_type(line[0], int)
+            el_type = check_type(line[1], str)
+            name = check_type(line[3], str)
+            group = check_type(line[4], int)
+            periode = check_type(line[5], int)
+            density = check_type(line[6], float)
+            melting_point = check_type(line[7], float)
+            boiling_point = check_type(line[8], float)
+            electro_negativity = check_type(line[10], float)
+            abundance_crust = check_type(line[11], float)
+            covalent_r_single = check_type(line[13], int)
+            covalent_r_double = check_type(line[14], int)
+            covalent_r_triple = check_type(line[15], int)
+            vdW_r = check_type(line[16], int)
+            e_config = check_type(line[17], str)
+
+            propset = {"name": name,
+                       "element_type": el_type,
+                       "group": group,
+                       "periode": periode,
+                       "density": density,
+                       "melting_point": melting_point,
+                       "boiling_point": boiling_point,
+                       "electro_negativity": electro_negativity,
+                       "abundance_crust": abundance_crust,
+                       "covalent_r_single": covalent_r_single,
+                       "covalent_r_double": covalent_r_double,
+                       "covalent_r_triple": covalent_r_triple,
+                       "vdW_r": vdW_r,
+                       "e_config": e_config}
+            prop[z] = {k: v for k, v in propset.items() if v}
+        return prop
+
 
 class PeriodicTable(object):
     """Reads the Periodic Table information from the provided HDF5 DATAFILE."""
@@ -327,17 +418,34 @@ class PeriodicTable(object):
 
         We are reading:
             Nuclides:
-                atomic_symbol:      str
-                atomic_number:      int
-                mass_number:        int
-                atomic_mass:        float
-                abundance:          float
+                atomic_symbol:              str
+                atomic_number:              int
+                mass_number:                int
+                atomic_mass:                float
+                abundance:                  float
             Elements:
-                symbol:             str
-                number:             int
-                isotopes:           Nuclides()
-                atomic_weight_str:  str
+                symbol:                     str
+                number:                     int
+                name:                       str
+                element_type:               str
+                atomic_weight_str:          str
+                isotopes:                   Nuclides()
+                density:                    float       (in g/cm^3)
+                melting_point:              float       (in K)
+                boiling_point:              float       (in K)
+                electro_negativity:         float       (Pauling scale)
+                abundance_crust:            float       (in mg/kg)
+                covalent_r_single:          int         (in pm)
+                covalent_r_double:          int         (in pm)
+                covalent_r_triple:          int         (in pm)
+                vdW_r:                      int         (in pm)
+                e_config:                   str         (html string)
         """
+        properties = ["name", "element_type", "atomic_weight_str", "density",
+                      "melting_point", "boiling_point", "electro_negativity",
+                      "abundance_crust", "covalent_r_single",
+                      "covalent_r_double", "covalent_r_triple", "vdW_r",
+                      "e_config"]
         try:
             if type(element) is INT:
                 sy = self.an_to_sy[element]
@@ -350,7 +458,7 @@ class PeriodicTable(object):
                     " {} was provided.".format(type(element)))
 
         el = self.hdf5[sy].attrs
-        aw_str = el['atomic_weight_str']
+        el_cp = {k: el[k] for k in properties}
         isotopes = []
         # print(self.hdf5[sy]['2'].attrs['atomic_symbol'])
         # sys.exit()
@@ -365,7 +473,8 @@ class PeriodicTable(object):
                               atomic_mass=atomic_mass,
                               abundance=isotopic_abund)
             isotopes.append(isotope)
-        return Element(sy, an, isotopes=isotopes, atomic_weight_str=aw_str)
+        el_cp["isotopes"] = isotopes
+        return Element(sy, an, **el_cp)
 
 
 class ExportPeriodicTableNIST(object):
@@ -400,16 +509,28 @@ class ExportPeriodicTableNIST(object):
         This should speed up subsequent loading of the element data.
         We are dumping:
             Nuclides:
-                atomic_symbol:      str
-                atomic_number:      int
-                mass_number:        int
-                atomic_mass:        float
-                abundance:          float
+                atomic_symbol:              str
+                atomic_number:              int
+                mass_number:                int
+                atomic_mass:                float
+                abundance:                  float
             Elements:
-                symbol:             str
-                number:             int
-                isotopes:           Nuclides()
-                atomic_weight_str:  str
+                symbol:                     str
+                number:                     int
+                name:                       str
+                element_type:               str
+                atomic_weight_str:          str
+                isotopes:                   Nuclides()
+                density:                    float       (in g/cm^3)
+                melting_point:              float       (in K)
+                boiling_point:              float       (in K)
+                electro_negativity:         float       (Pauling scale)
+                abundance_crust:            float       (in mg/kg)
+                covalent_r_single:          int         (in pm)
+                covalent_r_double:          int         (in pm)
+                covalent_r_triple:          int         (in pm)
+                vdW_r:                      int         (in pm)
+                e_config:                   str         (html string)
         """
         userblock_size = 512
         user_block_string = ("PeriodicTable data created from the \n" +
@@ -429,7 +550,20 @@ class ExportPeriodicTableNIST(object):
             el_grp = hdf5.create_group(sy)
             el_grp.attrs.create('symbol', sy)
             el_grp.attrs.create('number', an)
+            el_grp.attrs.create('name', el.name)
             el_grp.attrs.create('atomic_weight_str', el.atomic_weight_str)
+            el_grp.attrs.create('element_type', el.element_type)
+            el_grp.attrs.create('atomic_weight_str', el.atomic_weight_str)
+            el_grp.attrs.create('density', el.density)
+            el_grp.attrs.create('melting_point', el.melting_point)
+            el_grp.attrs.create('boiling_point', el.boiling_point)
+            el_grp.attrs.create('electro_negativity', el.electro_negativity)
+            el_grp.attrs.create('abundance_crust', el.abundance_crust)
+            el_grp.attrs.create('covalent_r_single', el.covalent_r_single)
+            el_grp.attrs.create('covalent_r_double', el.covalent_r_double)
+            el_grp.attrs.create('covalent_r_triple', el.covalent_r_triple)
+            el_grp.attrs.create('vdW_r', el.vdW_r)
+            el_grp.attrs.create('e_config', el.e_config)
             for isotope in el.isotopes:
                 iso_grp = el_grp.create_group(str(isotope.mass_number))
                 iso_grp.attrs.create('atomic_symbol', isotope.atomic_symbol)
@@ -437,6 +571,7 @@ class ExportPeriodicTableNIST(object):
                 iso_grp.attrs.create('mass_number', isotope.mass_number)
                 iso_grp.attrs.create('atomic_mass', isotope.atomic_mass)
                 iso_grp.attrs.create('abundance', isotope.abundance)
+
         hdf5.flush()
         hdf5.close()
         with open(HDF5FILE, 'rb+') as hdf5_ub:
