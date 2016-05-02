@@ -1,3 +1,5 @@
+"""This module contains all the nuclide and element specific classes."""
+
 from __future__ import print_function
 from __future__ import division
 # from __future__ import unicode_literals  # This breaks the rb+ writing (hdf5)
@@ -59,6 +61,7 @@ class Element(object):
     """
 
     def __init__(self, sy, an, **kwargs):
+        """Initiate symbol, atomic number and kewords."""
         super(Element, self).__init__()
         self.symbol = sy
         self.number = an
@@ -171,6 +174,7 @@ class PeriodicTableNIST(object):
     """
 
     def __init__(self):
+        """Initiate the class, all info is provided through files."""
         super(PeriodicTableNIST, self).__init__()
         self.an_to_sy = self.atomic_number_to_symbol()
         self.sy_to_an = self.symbol_to_atomic_number()
@@ -213,7 +217,7 @@ class PeriodicTableNIST(object):
         return OrderedDict(element_map)
 
     def symbol_to_atomic_number(self):
-        """Return a dictionary mapping the the atomic symbols to the numbers."""
+        """Return a dictionary mapping the the atomic symbols to numbers."""
         return OrderedDict((sy, an) for an, sy in self.an_to_sy.items())
 
     def element_isotopic_data(self, atomic_num):
@@ -294,6 +298,7 @@ class PeriodicTable(object):
     """Reads the Periodic Table information from the provided HDF5 DATAFILE."""
 
     def __init__(self):
+        """Initiate the class, all info is provided through the HDF5 file."""
         super(PeriodicTable, self).__init__()
         if os.path.exists(HDF5FILE):
             self.hdf5 = h5py.File(HDF5FILE, mode='r')
@@ -313,7 +318,7 @@ class PeriodicTable(object):
         return OrderedDict(el_map)
 
     def symbol_to_atomic_number(self):
-        """Return a dictionary mapping the the atomic symbols to the numbers."""
+        """Return a dictionary mapping the the atomic symbols to numbers."""
         return OrderedDict((sy, an) for an, sy in self.an_to_sy.items())
 
     def element(self, element):
@@ -367,6 +372,7 @@ class ExportPeriodicTableNIST(object):
     """This class harbours the export functions for the PeriodicTable class."""
 
     def __init__(self):
+        """Initiate the class, no input, just export."""
         super(ExportPeriodicTableNIST, self).__init__()
         self.PTN = PeriodicTableNIST()
 
