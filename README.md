@@ -55,13 +55,13 @@ el_H.symbol               # atomic number
 el_F.number               # atomic symbol
 el_Tc.mass                # The mass of the 'representing' isotope (in u)
 el_U.weight               # Abundance-weighted average mass of the stable isotopes
-                          #  If unstable: mass of the most stable isotope (in u)
+                          # If unstable: mass of the most stable isotope (in u)
 el_C.representing_isotope # The most abundant or most stable isotope
 el_At.is_stable           # Returns True if one isotope of this element is
-                          #  stable [Also True for Th, Pa, U]
+                          # stable [Also True for Th, Pa, U]
 ```
 **Additional properties** of an element `elem = PT.element(z)` (where `z` is an
- atomic number between 1 and 118):
+ atomic number between 1 and 118) can be accessed via:
 
 ```python
 elem.density              # in g/cm³
@@ -76,6 +76,9 @@ elem.vdW_r                # van-der-Waals radius (in pm)
 elem.e_config             # html string for the electron configuration
                           # (e.g. "1s<sup>1</sup>" for H)
 ```
+
+*Note that not all properties are available for every element.*
+*If a property is unavailable, its value is set to 0.*
 
 We can also access isotopes through the `PT.element().isotopes()` method
  returns a list of all isotopes or through elem.representing_isotope (returning
@@ -117,11 +120,11 @@ The data is sourced from a
 Additional properties were originally sourced from the
  [List of elements](https://en.wikipedia.org/wiki/List_of_elements)
  Wikipedia page, but are now self-curated.
-Pyykkö`s covalent radii are obtained from these three sources
+Pyykkö`s covalent radii are obtained from three of his papers:
  [Single-Bond Covalent Radii](https://dx.doi.org/10.1002/chem.200800987),
  [Double-Bond Covalent Radii](https://dx.doi.org/10.1002/chem.200901472),
  [Triple-Bond Covalent Radii](https://dx.doi.org/10.1002/chem.200401299).
 The van-der-radii are taken from  CRC Handbook of Chemistry and Physics,
-96th ed., Atomic Radii of the Elements (except for Hydrogen, where 120 pm
-instead of 110 pm is used).
+*96th ed.*, Section:'Atomic Radii of the Elements' (except for Hydrogen, where
+ 120 pm instead of 110 pm is used).
 
