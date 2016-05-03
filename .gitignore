@@ -1,3 +1,6 @@
 *.pyc
 *.csv
 *.ods*
+*.dat
+periodic_table/create_hdf5_database.py
+periodic_table/database_tools.py
