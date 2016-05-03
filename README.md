@@ -1,9 +1,9 @@
 PeriodicTable
 ======================
 
-A small python library allowing access to atomic weights and isotopic
+A small python library allowing access to atomic weights, isotopic
  compositions and elemental properties for all known chemical elements.
-It is meant to be lightweight and fast due to the hdf5 database.
+It is meant to be lightweight using an hdf5 database.
 
 Installation
 ------------
@@ -69,9 +69,9 @@ elem.melting_point        # at standard pressure (in K)
 elem.boiling_point        # at standard pressure (in K)
 elem.electro_negativity   # EN according to the Pauling scale
 elem.abundance_crust      # elemental abundance in the earth's crust (in mg/kg)
-elem.covalent_r_single    # Pyykkö's' covalent radius for a single bond (in pm)
-elem.covalent_r_double    # Pyykkö's' covalent radius for a double bond (in pm)
-elem.covalent_r_triple    # Pyykkö's' covalent radius for a triple bond (in pm)
+elem.covalent_r_single    # Pyykkö's covalent radius for a single bond (in pm)
+elem.covalent_r_double    # Pyykkö's covalent radius for a double bond (in pm)
+elem.covalent_r_triple    # Pyykkö's covalent radius for a triple bond (in pm)
 elem.vdW_r                # van-der-Waals radius (in pm)
 elem.e_config             # html string for the electron configuration
                           # (e.g. "1s<sup>1</sup>" for H)
@@ -101,7 +101,7 @@ Internally this is handled through an `Nuclide` class which has the following
 ```python
 iso_D.atomic_symbol       # Returns 'D' in this case
 iso_C12.atomic_number     # Returns 6 in this case
-iso_F.mass_number         # Number of nucleons (aka *mass number*), 19 in this case
+iso_F.mass_number         # Number of nucleons (aka mass number), 19 in this case
 iso_Tc.atomic_mass        # mass of the nuclide
 iso_U.abundance           # Nat. Isotopic abundance (0 < a <= 1)
                           # (if this is exactly zero it is unstable)
