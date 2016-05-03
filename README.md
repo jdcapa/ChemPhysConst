@@ -2,7 +2,7 @@ PeriodicTable
 ======================
 
 A small python library allowing access to atomic weights and isotopic
- compositions for all known chemical elements.
+ compositions and elemental properties for all known chemical elements.
 It is meant to be lightweight and fast due to the hdf5 database.
 
 Installation
