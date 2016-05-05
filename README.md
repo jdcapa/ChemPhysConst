@@ -21,7 +21,7 @@ Usage
 In your python import section put:
 
 ```python
-from periodic_table.periodictable import PeriodicTable
+from periodic_table import PeriodicTable
 ```
 
 Initialise:
