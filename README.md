@@ -2,7 +2,7 @@ ChemPhysConst
 ======================
 
 A lightweight python library allowing access to physical constants, periodic table
- data and mathematical conventions
+ data and mathematical conventions.
 The periodic table data contains atomic weights, isotopic compositions and
  elemental properties for all known chemical elements.
 
