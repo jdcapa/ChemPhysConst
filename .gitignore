@@ -1,4 +1,4 @@
 *.pyc
 *.ods*
-periodic_table/database_tools.py
-periodic_table/create_hdf5_database.py
+chemphysconst/database_tools.py
+chemphysconst/create_hdf5_database.py

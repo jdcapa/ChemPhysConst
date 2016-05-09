@@ -1,9 +1,10 @@
-PeriodicTable
+ChemPhysConst
 ======================
 
-A small python library allowing access to atomic weights, isotopic
- compositions and elemental properties for all known chemical elements.
-It is meant to be lightweight using an hdf5 database.
+A lightweight python library allowing access to physical constants, periodic table
+ data and mathematical conventions
+The periodic table data contains atomic weights, isotopic compositions and
+ elemental properties for all known chemical elements.
 
 Installation
 ------------
@@ -13,15 +14,15 @@ Installation
 
 Simply use pip to install the periodic table python library:
 
-    $ pip install --user git+https://github.com/jdcapa/PeriodicTable
+    $ pip install --user git+https://github.com/jdcapa/ChemPhysConst
 
-Usage
+PeriodicTable Usage
 -----
 
 In your python import section put:
 
 ```python
-from periodic_table import PeriodicTable
+from chemphysconst import PeriodicTable
 ```
 
 Initialise:

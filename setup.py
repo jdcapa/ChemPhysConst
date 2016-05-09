@@ -19,19 +19,20 @@ except IOError:
     long_description = ''
 
 setup(
-    name='periodic_table',
+    name='chemphysconst',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
     version='1.1',
 
-    description=('Python library of atomic weights and isotopic ' +
-                 'compositions for all known chemical elements.'),
+    description=('Lightweight python library allowing access to physical' +
+                 'constants, periodic table data and mathematical' +
+                  'conventions. '),
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/jdcapa/PeriodicTable',
+    url='https://github.com/jdcapa/ChemPhysConst',
 
     # Author details
     author='JD Capa',
@@ -67,7 +68,7 @@ setup(
     ],
 
     # What does your project relate to?
-    keywords='quantum chemistry',
+    keywords='quantum chemistry physics',
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
@@ -100,7 +101,7 @@ setup(
     # installed, specify them here.  If using Python 2.6 or less, then these
     # have to be included in MANIFEST.in as well.
     package_data={
-        'periodic_table': ['data/*.hdf5'],
+        'chemphysconst': ['data/*.hdf5'],
     },
 
     # Although 'package_data' is the preferred approach, in some case you may
