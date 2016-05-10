@@ -1,13 +1,12 @@
-ChemPhysConst
-======================
+# ChemPhysConst
+
 
 A lightweight python library allowing access to physical constants, periodic table
  data and mathematical conventions.
 The periodic table data contains atomic weights, isotopic compositions and
  elemental properties for all known chemical elements.
 
-Installation
-------------
+## Installation
 
 **Requirements:** Python 2.7, pip,
  [hd5py](http://docs.h5py.org/en/latest/index.html)
@@ -16,7 +15,9 @@ Simply use pip to install the periodic table python library:
 
     $ pip install --user git+https://github.com/jdcapa/ChemPhysConst
 
-PeriodicTable Usage
+## Usage
+
+### PeriodicTable
 -----
 
 In your python import section put:
@@ -109,8 +110,55 @@ iso_U.abundance           # Nat. Isotopic abundance (0 < a <= 1)
 ```
 
 
-Sources
--------
+### Constants
+
+
+In your python import section put:
+
+```python
+from chemphysconst import Constants
+```
+
+Initialise:
+
+```python
+CONST = Constants()
+```
+The Constants library provides access to often used physical constants.
+Currently the following are implemented.
+
+```python
+CONST.planck_constant(unit)      # Plack constant (unit = "J*s" | "eV*s" | "Eh*s" )
+CONST.electron_mass(unit)        # electron mass (unit = "u" | "kg")
+CONST.neutron_mass(unit)         # neutron mass (unit = "u" | "kg")
+CONST.proton_mass(unit)          # proton mass (unit = "u" | "kg")
+CONST.avogadro_constant()        # Avogadro constant in mol^-1
+CONST.bohr_magneton()            # Bohr magneton in J/T.
+CONST.bohr_radius(unit)          # Bohr radius (unit = "m" | "Angstroem")
+CONST.Boltzmann_constant(unit)   # Boltzmann constant (unit = "J/K" | "eV/K" | "cm^-1/K")
+CONST.hartree_energy(unit)       # Hartree energy (unit = "kJ/mol" | "J" | "kcal/mol" | "eV")
+CONST.atomic_mass_constant(unit) # atomic mass unit (unit = 'kg' | 'atomic')
+CONST.electron_volt()            # eV in J
+CONST.speed_of_light()           # speed of light in vacuum in m/s
+CONST.standard_atmosphere()      # standard atmosphere in Pa
+CONST.standard_temperature()     # standard temperature in K
+CONST.molar_gas_constant()       # molar gas constant R in J mol^-1 K^-1
+```
+
+If there are multiple units to choose from, the first one is the default
+ option.
+All of the above mentioned return values are of numpy.float type.
+
+Special mathematical definitions currently only hold the
+ (3rd order Levi-Civita tensor)[https://en.wikipedia.org/wiki/Levi-Civita_symbol#Three_dimensions]
+ as a numpy array:
+
+```python
+CONST.third_order_LeviCevita_Tensor()
+```
+
+
+## Sources
 
 This project came about when working with the
  [PeriodicTable package](http://www.reflectometry.org/danse/elements.html).
@@ -129,3 +177,7 @@ The van-der-radii are taken from  CRC Handbook of Chemistry and Physics,
 *96th ed.*, Section:'Atomic Radii of the Elements' (except for Hydrogen, where
  120 pm instead of 110 pm is used).
 
+All data for the physical constants is obtained from the
+ [complete listing](http://physics.nist.gov/cuu/Constants/Table/allascii.txt) of
+ the **CODATA internationally recommended fundamental physical constants 2014**
+ curated by (NIST)[http://physics.nist.gov/cuu/Constants/index.html]
