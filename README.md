@@ -153,7 +153,7 @@ If there are multiple units to choose from, the first one is the default
 All of the above mentioned return values are of numpy.float type.
 
 Special mathematical definitions currently only hold the
- (3rd order Levi-Civita tensor)[https://en.wikipedia.org/wiki/Levi-Civita_symbol#Three_dimensions]
+ [3rd order Levi-Civita tensor](https://en.wikipedia.org/wiki/Levi-Civita_symbol#Three_dimensions)
  as a numpy array:
 
 ```python
@@ -183,4 +183,4 @@ The van-der-radii are taken from  CRC Handbook of Chemistry and Physics,
 All data for the physical constants is obtained from the
  [complete listing](http://physics.nist.gov/cuu/Constants/Table/allascii.txt) of
  the **CODATA internationally recommended fundamental physical constants 2014**
- curated by (NIST)[http://physics.nist.gov/cuu/Constants/index.html]
+ curated by [NIST](http://physics.nist.gov/cuu/Constants/index.html).
