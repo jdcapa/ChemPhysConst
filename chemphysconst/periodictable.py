@@ -97,7 +97,6 @@ class Element(object):
                 if kwargs[keyword]:
                     return kwargs[keyword]
             return default
-        print (kwargs)
         self.isotopes = check_kwargs_for("isotopes", [])
         self.atomic_weight_str = check_kwargs_for("atomic_weight_str", "")
         self.name = check_kwargs_for("name", "")
