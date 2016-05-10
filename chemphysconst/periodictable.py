@@ -55,7 +55,7 @@ class Element(object):
     """
     This contains properties of a given element.
 
-    Variables: symbol, number, representing_isotope, name, type, group, period
+    Variables: symbol, number, representing_isotope, name, type
     Properties: is_stable (True|False)
                 mass (in u)
                 weight (in u)
@@ -69,6 +69,8 @@ class Element(object):
                 covalent_r_triple (in pm)
                 vdW_r (in pm)
                 e_config (html string)
+                group
+                period
 
     Methods: isotope(mass_number)
     """
@@ -95,7 +97,7 @@ class Element(object):
                 if kwargs[keyword]:
                     return kwargs[keyword]
             return default
-
+        print (kwargs)
         self.isotopes = check_kwargs_for("isotopes", [])
         self.atomic_weight_str = check_kwargs_for("atomic_weight_str", "")
         self.name = check_kwargs_for("name", "")
@@ -238,6 +240,8 @@ class PeriodicTable(object):
                 element_type:               str
                 atomic_weight_str:          str
                 isotopes:                   Nuclides()
+                group                       int
+                period                      int
                 density:                    float       (in g/cm^3)
                 melting_point:              float       (in K)
                 boiling_point:              float       (in K)
@@ -251,9 +255,9 @@ class PeriodicTable(object):
         """
         properties = ["name", "element_type", "atomic_weight_str", "density",
                       "melting_point", "boiling_point", "electro_negativity",
-                      "abundance_crust", "covalent_r_single",
-                      "covalent_r_double", "covalent_r_triple", "vdW_r",
-                      "e_config"]
+                      "group", "period", "abundance_crust",
+                      "covalent_r_single", "covalent_r_double",
+                      "covalent_r_triple", "vdW_r", "e_config"]
         try:
             if type(element) is INT:
                 sy = self.an_to_sy[element]
