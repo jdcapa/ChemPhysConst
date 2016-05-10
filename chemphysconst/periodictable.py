@@ -211,7 +211,8 @@ class PeriodicTable(object):
 
     def atomic_number_to_symbol(self):
         """Return a dictionary mapping the atomic numbers to the symbols."""
-        el_map = [[el.attrs['number'], sy] for sy, el in self.hdf5.items()]
+        el_map = [[el.attrs['number'], sy] for sy, el in
+                  self.hdf5["periodic_table"].items()]
         el_map.sort(key=operator.itemgetter(0))
         return OrderedDict(el_map)
 
