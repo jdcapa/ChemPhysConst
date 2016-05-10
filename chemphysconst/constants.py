@@ -31,7 +31,6 @@ class Constants(object):
             hdf5 = h5py.File(HDF5FILE, mode='r')
             for constant_name in hdf5["physical_constants"].keys():
                 const_attrs = hdf5["physical_constants"][constant_name].attrs
-                print (constant_name, const_attrs.keys())
                 constants[constant_name] = {e: const_attrs[e] for e in entries}
             hdf5.close()
             return constants
