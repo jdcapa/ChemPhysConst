@@ -17,6 +17,9 @@ Simply use pip to install the periodic table python library:
 
 ## Usage
 
+The following briefly describes the import and scope of the `PeriodicTable`
+ and `Constants` module.
+
 ### PeriodicTable
 -----
 
