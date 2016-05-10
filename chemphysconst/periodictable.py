@@ -14,7 +14,7 @@ import numpy as np
 INT = np.int
 FLOAT = np.float
 here = os.path.dirname(__file__)
-HDF5FILE = os.path.join(here, "data", "PeriodicTable2016.hdf5")
+HDF5FILE = os.path.join(here, "data", "ChemPhysConst2016.hdf5")
 
 
 class Nuclide(object):
