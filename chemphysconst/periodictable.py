@@ -264,13 +264,13 @@ class PeriodicTable(object):
             raise e("get_element_properties() requires either int or str type."
                     " {} was provided.".format(type(element)))
 
-        el = self.hdf5[sy].attrs
+        el = self.hdf5["periodic_table"][sy].attrs
         el_cp = {k: el[k] for k in properties}
         isotopes = []
         # print(self.hdf5[sy]['2'].attrs['atomic_symbol'])
         # sys.exit()
-        for mn in self.hdf5[sy].keys():
-            iso = self.hdf5[sy][mn].attrs
+        for mn in self.hdf5["periodic_table"][sy].keys():
+            iso = self.hdf5["periodic_table"][sy][mn].attrs
             mass_number = INT(mn)
             atomic_symbol = iso['atomic_symbol']
             atomic_num = iso['atomic_number']
