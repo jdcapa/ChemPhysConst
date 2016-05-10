@@ -3,7 +3,7 @@ from __future__ import print_function
 from __future__ import unicode_literals
 import argparse
 import operator
-from periodic_table.periodictable import PeriodicTable
+from chemphysconst import PeriodicTable
 
 program_description = 'Small scripts that returns element details'
 parser = argparse.ArgumentParser(description=program_description)
@@ -18,12 +18,20 @@ PT = PeriodicTable()
 element = PT.element(args.input)
 
 element_info = """
+  Name:                   {0.name}
   Symbol:                 {0.symbol}
   Number:                 {0.number}
+  Period:                 {0.period}
+  Group:                  {0.group}
   Atomic Mass:            {0.mass}
   Atomic Weight:          {0.weight:.4f}
   Representing Isotope:   {0.representing_isotope.mass_number}
-  Stable:                 {0.is_stable}""".format(element)
+  Stable:                 {0.is_stable}
+  Density:                {0.density} g/cm^3
+  Melting Point:          {0.melting_point} K
+  Boiling Point:          {0.boiling_point} K
+  Electronegativity:      {0.electro_negativity}
+  Elemental Abundance:    {0.abundance_crust}  mg/kg""".format(element)
 
 iso_info = """
     Mass Number:          {0.mass_number}
