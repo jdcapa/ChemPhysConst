@@ -1,10 +1,16 @@
 # ChemPhysConst
 
 
-A lightweight python library allowing access to physical constants, periodic table
- data and mathematical conventions.
+A lightweight python library allowing access to physical constants, periodic
+ table data and mathematical conventions.
 The periodic table data contains atomic weights, isotopic compositions and
  elemental properties for all known chemical elements.
+
+For the purpose of allowing fast access to the data and to allow further
+ properties, the database is stored as an
+ [HDF5](https://www.hdfgroup.org/HDF5/) object.
+This should allow other interfaces to also access the data independently.
+
 
 ## Installation
 
