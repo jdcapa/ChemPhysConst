@@ -1,2 +1,2 @@
-from periodictable import PeriodicTable
-from constants import Constants
+from .periodictable import PeriodicTable
+from .constants import Constants
