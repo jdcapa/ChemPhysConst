@@ -14,7 +14,7 @@ This should allow other interfaces to also access the data independently.
 
 ## Installation
 
-**Requirements:** Python 2.7, pip,
+**Requirements:** Python 3.4 or 3.5, pip,
  [h5py](http://docs.h5py.org/en/latest/index.html)
 
 Simply use pip to install the periodic table python library:
