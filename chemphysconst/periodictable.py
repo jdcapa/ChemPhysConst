@@ -184,7 +184,7 @@ class Element(object):
             masses = dict((isotope.mass_number, isotope.atomic_mass)
                           for isotope in self.isotopes)
             diff = [0, 100.00]
-            for mn, mass in list(masses.items()):
+            for mn, mass in masses.items():
                 if abs(mass - ma) < diff[1]:
                     diff[0] = mn
                     diff[1] = abs(mass - ma)
@@ -204,20 +204,20 @@ class PeriodicTable(object):
         else:
             sys.exit("The file {} is missing.".format(HDF5FILE))
 
-    def __del__(self):
-        """Make sure the HDF5 is closed upon cleanup."""
-        self.hdf5.close()
+    # def __del__(self):
+    #     """Make sure the HDF5 is closed upon cleanup."""
+    #     self.hdf5.close()
 
     def atomic_number_to_symbol(self):
         """Return a dictionary mapping the atomic numbers to the symbols."""
         el_map = [[el.attrs['number'], sy] for sy, el in
-                  list(self.hdf5["periodic_table"].items())]
+                  self.hdf5["periodic_table"].items()]
         el_map.sort(key=operator.itemgetter(0))
         return OrderedDict(el_map)
 
     def symbol_to_atomic_number(self):
         """Return a dictionary mapping the the atomic symbols to numbers."""
-        return OrderedDict((sy, an) for an, sy in list(self.an_to_sy.items()))
+        return OrderedDict((sy, an) for an, sy in self.an_to_sy.items())
 
     def element(self, element):
         """
@@ -271,7 +271,7 @@ class PeriodicTable(object):
         isotopes = []
         # print(self.hdf5[sy]['2'].attrs['atomic_symbol'])
         # sys.exit()
-        for mn in list(self.hdf5["periodic_table"][sy].keys()):
+        for mn in self.hdf5["periodic_table"][sy].keys():
             iso = self.hdf5["periodic_table"][sy][mn].attrs
             mass_number = INT(mn)
             atomic_symbol = iso['atomic_symbol']
