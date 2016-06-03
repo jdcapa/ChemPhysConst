@@ -1,4 +1,5 @@
 *.pyc
 *.ods*
+*.bak
 chemphysconst/database_tools.py
 chemphysconst/create_hdf5_database.py

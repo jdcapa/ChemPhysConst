@@ -1,7 +1,7 @@
 """A module which extracts Physical constants from an hdf5 database."""
 
-from __future__ import print_function
-from __future__ import division
+
+
 import numpy as np
 import sys
 import os
@@ -29,7 +29,7 @@ class Constants(object):
             constants = {}
             entries = ["description", "value", "uncertainty", "unit"]
             hdf5 = h5py.File(HDF5FILE, mode='r')
-            for constant_name in hdf5["physical_constants"].keys():
+            for constant_name in list(hdf5["physical_constants"].keys()):
                 const_attrs = hdf5["physical_constants"][constant_name].attrs
                 constants[constant_name] = {e: const_attrs[e] for e in entries}
             hdf5.close()
