@@ -19,7 +19,7 @@ This should allow other interfaces to also access the data independently.
 
 Simply use pip to install the periodic table python library:
 
-    $ pip install --user git+https://github.com/jdcapa/ChemPhysConst
+    $ pip3 install --user git+https://github.com/jdcapa/ChemPhysConst
 
 ## Usage
 
