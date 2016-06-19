@@ -1,30 +1,34 @@
+#!/usr/bin/env python3
 """A module which extracts Physical constants from an hdf5 database."""
-
-
 
 import numpy as np
 import sys
 import os
 import h5py
+import yaml
+from yaml import CLoader as Loader
 
 INT = np.int
 FLOAT = np.float
 here = os.path.dirname(__file__)
 HDF5FILE = os.path.join(here, "data", "ChemPhysConst2016.hdf5")
+YAMLCONST = os.path.join(here, "data", "PhysConst2016.yaml")
 
 
 class Constants(object):
-    """
-    Constants sourced from NIST.
-    """
-    def __init__(self):
-        """Initiate the class, all info is provided through the HDF5 file."""
+    """Constants sourced from NIST."""
+
+    def __init__(self, hdf5=False):
+        """Initiate the class, all info is provided through the datbase."""
         super(Constants, self).__init__()
         self.angstroem = ["A", "Angs", "angs", "Angstroem", "angstroem"]
-        self.constants = self.read_hdf5_data()
+        if hdf5:
+            self.constants = self.read_hdf5_data()
+        else:
+            self.constants = self.read_yaml_data()
 
     def read_hdf5_data(self):
-        """Read the physical_constants section of the provided HDF5 data."""
+        """Read the physical_constants section of the HDF5 file."""
         if os.path.exists(HDF5FILE):
             constants = {}
             entries = ["description", "value", "uncertainty", "unit"]
@@ -37,8 +41,18 @@ class Constants(object):
         else:
             sys.exit("The file {} is missing.".format(HDF5FILE))
 
+    def read_yaml_data(self):
+        """Read the physical_constants from the YAMLCONST file."""
+        if os.path.exists(YAMLCONST):
+            with open(YAMLCONST) as yaml_read:
+                yaml_raw = yaml_read.read()
+            constants = yaml.load(yaml_raw, Loader=Loader)
+            return constants
+        else:
+            sys.exit("The file {} is missing.".format(YAMLCONST))
+
     def nd(self, name):
-        """Obtains the self.nist_data[name][value]"""
+        """Obtain the self.nist_data[name][value]."""
         return self.constants[name]['value']
 
     def planck_constant(self, unit="J*s"):
@@ -193,6 +207,5 @@ class Constants(object):
                 [
                     [int((i - j) * (j - k) * (k - i) / 2) for k in range(3)]
                     for j in range(3)]
-                for i in range(3)
-            ], dtype=FLOAT)
+                for i in range(3)], dtype=FLOAT)
         return e

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
 """This module contains all the nuclide and element specific classes."""
 
@@ -7,12 +8,15 @@ import os
 from collections import OrderedDict
 import operator
 import h5py
+import yaml
+from yaml import CLoader as Loader
 import numpy as np
 
 INT = np.int
 FLOAT = np.float
 here = os.path.dirname(__file__)
 HDF5FILE = os.path.join(here, "data", "ChemPhysConst2016.hdf5")
+YAMLPERTA = os.path.join(here, "data", "PeriodicTable2016.yaml")
 
 
 class Nuclide(object):
@@ -194,24 +198,44 @@ class Element(object):
 class PeriodicTable(object):
     """Reads the Periodic Table information from the provided HDF5 DATAFILE."""
 
-    def __init__(self):
+    def __init__(self, hdf5=False):
         """Initiate the class, all info is provided through the HDF5 file."""
         super(PeriodicTable, self).__init__()
-        if os.path.exists(HDF5FILE):
-            self.hdf5 = h5py.File(HDF5FILE, mode='r')
-            self.an_to_sy = self.atomic_number_to_symbol()
-            self.sy_to_an = self.symbol_to_atomic_number()
+        self.read_hdf5 = hdf5
+        if not hdf5:
+            if os.path.exists(YAMLPERTA):
+                self.an_to_sy = self.atomic_number_to_symbol()
+                self.sy_to_an = self.symbol_to_atomic_number()
+                self.element = self.element_yaml
+            else:
+                sys.exit("The file {} is missing.".format(YAMLPERTA))
         else:
-            sys.exit("The file {} is missing.".format(HDF5FILE))
+            if os.path.exists(HDF5FILE):
+                self.hdf5 = h5py.File(HDF5FILE, mode='r')
+                self.an_to_sy = self.atomic_number_to_symbol()
+                self.sy_to_an = self.symbol_to_atomic_number()
+                self.element = self.element_hdf5
+            else:
+                sys.exit("The file {} is missing.".format(HDF5FILE))
 
-    # def __del__(self):
-    #     """Make sure the HDF5 is closed upon cleanup."""
-    #     self.hdf5.close()
+        self.element_properties = ["name", "element_type", "atomic_weight_str",
+                                   "density", "melting_point", "boiling_point",
+                                   "electro_negativity", "group", "period",
+                                   "abundance_crust", "covalent_r_single",
+                                   "covalent_r_double", "covalent_r_triple",
+                                   "vdW_r", "e_config"]
 
     def atomic_number_to_symbol(self):
         """Return a dictionary mapping the atomic numbers to the symbols."""
-        el_map = [[el.attrs['number'], sy] for sy, el in
-                  self.hdf5["periodic_table"].items()]
+        if self.read_hdf5:
+            el_map = [[el.attrs['number'], sy] for sy, el in
+                      self.hdf5["periodic_table"].items()]
+        else:
+            with open(YAMLPERTA) as yaml_read:
+                yaml_raw = yaml_read.read()
+            self.yamlPT = yaml.load(yaml_raw, Loader=Loader)
+            el_map = [[el['number'], sy] for sy, el in
+                      self.yamlPT.items()]
         el_map.sort(key=operator.itemgetter(0))
         return OrderedDict(el_map)
 
@@ -219,7 +243,67 @@ class PeriodicTable(object):
         """Return a dictionary mapping the the atomic symbols to numbers."""
         return OrderedDict((sy, an) for an, sy in self.an_to_sy.items())
 
-    def element(self, element):
+    def element_yaml(self, element):
+        """
+        Import the generated yaml version of the Periodic table data.
+
+        We are reading:
+            Nuclides:
+                atomic_symbol:              str
+                atomic_number:              int
+                mass_number:                int
+                atomic_mass:                float
+                abundance:                  float
+            Elements:
+                symbol:                     str
+                number:                     int
+                name:                       str
+                element_type:               str
+                atomic_weight_str:          str
+                isotopes:                   Nuclides()
+                group                       int
+                period                      int
+                density:                    float       (in g/cm^3)
+                melting_point:              float       (in K)
+                boiling_point:              float       (in K)
+                electro_negativity:         float       (Pauling scale)
+                abundance_crust:            float       (in mg/kg)
+                covalent_r_single:          int         (in pm)
+                covalent_r_double:          int         (in pm)
+                covalent_r_triple:          int         (in pm)
+                vdW_r:                      int         (in pm)
+                e_config:                   str         (html string)
+        """
+        properties = self.element_properties + ["mass_numbers"]
+        try:
+            if type(element) is INT:
+                sy = self.an_to_sy[element]
+                an = element
+            elif type(element) is str:
+                sy = element
+                an = self.sy_to_an[element]
+        except KeyError as e:
+            raise e("get_element_properties() requires either int or str type."
+                    " {} was provided.".format(type(element)))
+        el = self.yamlPT[sy]
+        el_cp = {k: el[k] for k in properties}
+        isotopes = []
+        for mn in el["mass_numbers"]:
+            iso = el[mn]
+            mass_number = INT(mn)
+            atomic_symbol = iso['atomic_symbol']
+            atomic_num = iso['atomic_number']
+            atomic_mass = iso['atomic_mass']
+            isotopic_abund = iso['abundance']
+            isotope = Nuclide(atomic_symbol, atomic_num, mass_number,
+                              atomic_mass=atomic_mass,
+                              abundance=isotopic_abund)
+            isotopes.append(isotope)
+        el_cp["isotopes"] = isotopes
+
+        return Element(sy, an, **el_cp)
+
+    def element_hdf5(self, element):
         """
         Import the generated hdf5 version of the Periodic table data.
 
@@ -250,11 +334,7 @@ class PeriodicTable(object):
                 vdW_r:                      int         (in pm)
                 e_config:                   str         (html string)
         """
-        properties = ["name", "element_type", "atomic_weight_str", "density",
-                      "melting_point", "boiling_point", "electro_negativity",
-                      "group", "period", "abundance_crust",
-                      "covalent_r_single", "covalent_r_double",
-                      "covalent_r_triple", "vdW_r", "e_config"]
+        properties = self.element_properties
         try:
             if type(element) is INT:
                 sy = self.an_to_sy[element]
@@ -269,12 +349,10 @@ class PeriodicTable(object):
         el = self.hdf5["periodic_table"][sy].attrs
         el_cp = {k: el[k] for k in properties}
         isotopes = []
-        # print(self.hdf5[sy]['2'].attrs['atomic_symbol'])
-        # sys.exit()
         for mn in self.hdf5["periodic_table"][sy].keys():
             iso = self.hdf5["periodic_table"][sy][mn].attrs
             mass_number = INT(mn)
-            atomic_symbol = iso['atomic_symbol']
+            atomic_symbol = iso['atomic_symbol'].decode('utf-8')
             atomic_num = iso['atomic_number']
             atomic_mass = iso['atomic_mass']
             isotopic_abund = iso['abundance']
