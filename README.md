@@ -1,23 +1,18 @@
 # ChemPhysConst
 
 
-A lightweight python package allowing access to physical constants, periodic
+A lightweight python3 package allowing access to physical constants, periodic
  table data and mathematical conventions.
 The periodic table data contains atomic weights, isotopic compositions and
  elemental properties for all known chemical elements.
 
-For the purpose of allowing fast access to the data and to allow further
- properties, the database is stored as an
- [HDF5](https://www.hdfgroup.org/HDF5/) object.
-This should allow other interfaces to also access the data independently.
-
-
 ## Installation
 
-**Requirements:** Python3.4 or higher, [Numpy](http://www.numpy.org/), [SciPy](https://www.scipy.org/),
- [h5py](http://docs.h5py.org/en/latest/index.html)
+**Requirements:** Python3.5 or higher, [Numpy](http://www.numpy.org/), [SciPy](https://www.scipy.org/),
+ [h5py](http://docs.h5py.org/en/latest/index.html) and [PyYAML](http://pyyaml.org/) with [LibYAML](http://pyyaml.org/wiki/LibYAML).
+[**This guide**](https://jdcapa.github.io/python/science/coding/set-up/2016/06/06/scientific-python3.5.html) covers the installation of all requirements.
 
-Simply use pip to install the periodic table python library:
+Simply use pip3 to install the periodic table python library:
 
     $ pip3 install --user git+https://github.com/jdcapa/ChemPhysConst
 
