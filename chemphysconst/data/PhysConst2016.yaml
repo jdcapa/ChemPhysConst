@@ -1,0 +1,639 @@
+Angstrom_star: {description: Angstrom star, uncertainty: 9.0e-17, unit: m, value: 1.00001495e-10}
+Avogadro_constant: {description: Avogadro constant, uncertainty: 7400000000000000.0,
+  unit: mol^-1, value: 6.022140857e+23}
+Bohr_magneton: {description: Bohr magneton, uncertainty: 5.7e-32, unit: J T^-1, value: 9.274009994e-24}
+Bohr_magneton_in_Hz_per_T: {description: Bohr magneton in Hz/T, uncertainty: 86.0,
+  unit: Hz T^-1, value: 13996245042.0}
+Bohr_magneton_in_K_per_T: {description: Bohr magneton in K/T, uncertainty: 3.9e-07,
+  unit: K T^-1, value: 0.67171405}
+Bohr_magneton_in_eV_per_T: {description: Bohr magneton in eV/T, uncertainty: 2.6e-14,
+  unit: eV T^-1, value: 5.7883818012e-05}
+Bohr_magneton_in_inverse_meters_per_tesla: {description: Bohr magneton in inverse
+    meters per tesla, uncertainty: 2.9e-07, unit: m^-1 T^-1, value: 46.68644814}
+Bohr_radius: {description: Bohr radius, uncertainty: 1.2e-20, unit: m, value: 5.2917721067e-11}
+Boltzmann_constant: {description: Boltzmann constant, uncertainty: 7.9e-30, unit: J
+    K^-1, value: 1.38064852e-23}
+Boltzmann_constant_in_Hz_per_K: {description: Boltzmann constant in Hz/K, uncertainty: 12000.0,
+  unit: Hz K^-1, value: 20836612000.0}
+Boltzmann_constant_in_eV_per_K: {description: Boltzmann constant in eV/K, uncertainty: 5.0e-11,
+  unit: eV K^-1, value: 8.6173303e-05}
+Boltzmann_constant_in_inverse_meters_per_kelvin: {description: Boltzmann constant
+    in inverse meters per kelvin, uncertainty: 4.0e-05, unit: m^-1 K^-1, value: 69.503457}
+Compton_wavelength: {description: Compton wavelength, uncertainty: 1.1e-21, unit: m,
+  value: 2.4263102367e-12}
+Compton_wavelength_over_2_pi: {description: Compton wavelength over 2 pi, uncertainty: 1.8e-22,
+  unit: m, value: 3.8615926764e-13}
+Cu_x_unit: {description: Cu x unit, uncertainty: 2.8e-20, unit: m, value: 1.00207697e-13}
+Faraday_constant: {description: Faraday constant, uncertainty: 0.00059, unit: C mol^-1,
+  value: 96485.33289}
+Faraday_constant_for_conventional_electric_current: {description: Faraday constant
+    for conventional electric current, uncertainty: 0.0012, unit: C_90 mol^-1, value: 96485.3251}
+Fermi_coupling_constant: {description: Fermi coupling constant, uncertainty: 6.0e-12,
+  unit: GeV^-2, value: 1.1663787e-05}
+Hartree_energy: {description: Hartree energy, uncertainty: 5.4e-26, unit: J, value: 4.35974465e-18}
+Hartree_energy_in_eV: {description: Hartree energy in eV, uncertainty: 1.7e-07, unit: eV,
+  value: 27.21138602}
+Josephson_constant: {description: Josephson constant, uncertainty: 3000000.0, unit: Hz
+    V^-1, value: 483597852500000.0}
+Loschmidt_constant_(273.15_K,_100_kPa): {description: 'Loschmidt constant (273.15
+    K, 100 kPa)', uncertainty: 1.5e+19, unit: m^-3, value: 2.6516467e+25}
+Loschmidt_constant_(273.15_K,_101.325_kPa): {description: 'Loschmidt constant (273.15
+    K, 101.325 kPa)', uncertainty: 1.5e+19, unit: m^-3, value: 2.6867811e+25}
+Mo_x_unit: {description: Mo x unit, uncertainty: 5.3e-20, unit: m, value: 1.00209952e-13}
+Newtonian_constant_of_gravitation: {description: Newtonian constant of gravitation,
+  uncertainty: 3.1e-15, unit: m^3 kg^-1 s^-2, value: 6.67408e-11}
+Newtonian_constant_of_gravitation_over_h-bar_c: {description: Newtonian constant of
+    gravitation over h-bar c, uncertainty: 3.1e-43, unit: (GeV/c^2)^-2, value: 6.70861e-39}
+Planck_constant: {description: Planck constant, uncertainty: 8.1e-42, unit: J s, value: 6.62607004e-34}
+Planck_constant_in_eV_s: {description: Planck constant in eV s, uncertainty: 2.5e-23,
+  unit: eV s, value: 4.135667662e-15}
+Planck_constant_over_2_pi: {description: Planck constant over 2 pi, uncertainty: 1.3e-42,
+  unit: J s, value: 1.0545718e-34}
+Planck_constant_over_2_pi_in_eV_s: {description: Planck constant over 2 pi in eV s,
+  uncertainty: 4.0e-24, unit: eV s, value: 6.582119514e-16}
+Planck_constant_over_2_pi_times_c_in_MeV_fm: {description: Planck constant over 2
+    pi times c in MeV fm, uncertainty: 1.2e-06, unit: MeV fm, value: 197.3269788}
+Planck_length: {description: Planck length, uncertainty: 3.8e-40, unit: m, value: 1.616229e-35}
+Planck_mass: {description: Planck mass, uncertainty: 5.1e-13, unit: kg, value: 2.17647e-08}
+Planck_mass_energy_equivalent_in_GeV: {description: Planck mass energy equivalent
+    in GeV, uncertainty: 290000000000000.0, unit: GeV, value: 1.22091e+19}
+Planck_temperature: {description: Planck temperature, uncertainty: 3.3e+27, unit: K,
+  value: 1.416808e+32}
+Planck_time: {description: Planck time, uncertainty: 1.3e-48, unit: s, value: 5.39116e-44}
+Rydberg_constant: {description: Rydberg constant, uncertainty: 6.5e-05, unit: m^-1,
+  value: 10973731.568508}
+Rydberg_constant_times_c_in_Hz: {description: Rydberg constant times c in Hz, uncertainty: 19000.0,
+  unit: Hz, value: 3289841960355000.0}
+Rydberg_constant_times_hc_in_J: {description: Rydberg constant times hc in J, uncertainty: 2.7e-26,
+  unit: J, value: 2.179872325e-18}
+Rydberg_constant_times_hc_in_eV: {description: Rydberg constant times hc in eV, uncertainty: 8.4e-08,
+  unit: eV, value: 13.605693009}
+Sackur-Tetrode_constant_(1_K,_100_kPa): {description: 'Sackur-Tetrode constant (1
+    K, 100 kPa)', uncertainty: 1.4e-06, unit: '', value: -1.1517084}
+Sackur-Tetrode_constant_(1_K,_101.325_kPa): {description: 'Sackur-Tetrode constant
+    (1 K, 101.325 kPa)', uncertainty: 1.4e-06, unit: '', value: -1.1648714}
+Stefan-Boltzmann_constant: {description: Stefan-Boltzmann constant, uncertainty: 1.3e-13,
+  unit: W m^-2 K^-4, value: 5.670367e-08}
+Thomson_cross_section: {description: Thomson cross section, uncertainty: 9.1e-38,
+  unit: m^2, value: 6.6524587158e-29}
+Wien_frequency_displacement_law_constant: {description: Wien frequency displacement
+    law constant, uncertainty: 34000.0, unit: Hz K^-1, value: 58789238000.0}
+Wien_wavelength_displacement_law_constant: {description: Wien wavelength displacement
+    law constant, uncertainty: 1.7e-09, unit: m K, value: 0.0028977729}
+alpha_particle-electron_mass_ratio: {description: alpha particle-electron mass ratio,
+  uncertainty: 2.4e-07, unit: '', value: 7294.29954136}
+alpha_particle-proton_mass_ratio: {description: alpha particle-proton mass ratio,
+  uncertainty: 3.6e-10, unit: '', value: 3.97259968907}
+alpha_particle_mass: {description: alpha particle mass, uncertainty: 8.2e-35, unit: kg,
+  value: 6.64465723e-27}
+alpha_particle_mass_energy_equivalent: {description: alpha particle mass energy equivalent,
+  uncertainty: 7.3e-18, unit: J, value: 5.971920097e-10}
+alpha_particle_mass_energy_equivalent_in_MeV: {description: alpha particle mass energy
+    equivalent in MeV, uncertainty: 2.3e-05, unit: MeV, value: 3727.379378}
+alpha_particle_mass_in_u: {description: alpha particle mass in u, uncertainty: 6.3e-11,
+  unit: u, value: 4.001506179127}
+alpha_particle_molar_mass: {description: alpha particle molar mass, uncertainty: 6.3e-14,
+  unit: kg mol^-1, value: 0.004001506179127}
+atomic_mass_constant: {description: atomic mass constant, uncertainty: 2.0e-35, unit: kg,
+  value: 1.66053904e-27}
+atomic_mass_constant_energy_equivalent: {description: atomic mass constant energy
+    equivalent, uncertainty: 1.8e-18, unit: J, value: 1.492418062e-10}
+atomic_mass_constant_energy_equivalent_in_MeV: {description: atomic mass constant
+    energy equivalent in MeV, uncertainty: 5.7e-06, unit: MeV, value: 931.4940954}
+atomic_mass_unit-electron_volt_relationship: {description: atomic mass unit-electron
+    volt relationship, uncertainty: 5.7, unit: eV, value: 931494095.4}
+atomic_mass_unit-hartree_relationship: {description: atomic mass unit-hartree relationship,
+  uncertainty: 0.016, unit: E_h, value: 34231776.902}
+atomic_mass_unit-hertz_relationship: {description: atomic mass unit-hertz relationship,
+  uncertainty: 100000000000000.0, unit: Hz, value: 2.2523427206e+23}
+atomic_mass_unit-inverse_meter_relationship: {description: atomic mass unit-inverse
+    meter relationship, uncertainty: 340000.0, unit: m^-1, value: 751300661660000.0}
+atomic_mass_unit-joule_relationship: {description: atomic mass unit-joule relationship,
+  uncertainty: 1.8e-18, unit: J, value: 1.492418062e-10}
+atomic_mass_unit-kelvin_relationship: {description: atomic mass unit-kelvin relationship,
+  uncertainty: 6200000.0, unit: K, value: 10809543800000.0}
+atomic_mass_unit-kilogram_relationship: {description: atomic mass unit-kilogram relationship,
+  uncertainty: 2.0e-35, unit: kg, value: 1.66053904e-27}
+atomic_unit_of_1st_hyperpolarizability: {description: atomic unit of 1st hyperpolarizability,
+  uncertainty: 2.0e-61, unit: C^3 m^3 J^-2, value: 3.206361329e-53}
+atomic_unit_of_2nd_hyperpolarizability: {description: atomic unit of 2nd hyperpolarizability,
+  uncertainty: 7.7e-73, unit: C^4 m^4 J^-3, value: 6.235380085e-65}
+atomic_unit_of_action: {description: atomic unit of action, uncertainty: 1.3e-42,
+  unit: J s, value: 1.0545718e-34}
+atomic_unit_of_charge: {description: atomic unit of charge, uncertainty: 9.8e-28,
+  unit: C, value: 1.6021766208e-19}
+atomic_unit_of_charge_density: {description: atomic unit of charge density, uncertainty: 6700.0,
+  unit: C m^-3, value: 1081202377000.0}
+atomic_unit_of_current: {description: atomic unit of current, uncertainty: 4.1e-11,
+  unit: A, value: 0.006623618183}
+atomic_unit_of_electric_dipole_mom.: {description: atomic unit of electric dipole
+    mom., uncertainty: 5.2e-38, unit: C m, value: 8.478353552e-30}
+atomic_unit_of_electric_field: {description: atomic unit of electric field, uncertainty: 3200.0,
+  unit: V m^-1, value: 514220670700.0}
+atomic_unit_of_electric_field_gradient: {description: atomic unit of electric field
+    gradient, uncertainty: 60000000000000.0, unit: V m^-2, value: 9.717362356e+21}
+atomic_unit_of_electric_polarizability: {description: atomic unit of electric polarizability,
+  uncertainty: 1.1e-50, unit: C^2 m^2 J^-1, value: 1.6487772731e-41}
+atomic_unit_of_electric_potential: {description: atomic unit of electric potential,
+  uncertainty: 1.7e-07, unit: V, value: 27.21138602}
+atomic_unit_of_electric_quadrupole_mom.: {description: atomic unit of electric quadrupole
+    mom., uncertainty: 2.8e-48, unit: C m^2, value: 4.486551484e-40}
+atomic_unit_of_energy: {description: atomic unit of energy, uncertainty: 5.4e-26,
+  unit: J, value: 4.35974465e-18}
+atomic_unit_of_force: {description: atomic unit of force, uncertainty: 1.0e-15, unit: N,
+  value: 8.23872336e-08}
+atomic_unit_of_length: {description: atomic unit of length, uncertainty: 1.2e-20,
+  unit: m, value: 5.2917721067e-11}
+atomic_unit_of_mag._dipole_mom.: {description: atomic unit of mag. dipole mom., uncertainty: 1.1e-31,
+  unit: J T^-1, value: 1.854801999e-23}
+atomic_unit_of_mag._flux_density: {description: atomic unit of mag. flux density,
+  uncertainty: 0.0014, unit: T, value: 235051.755}
+atomic_unit_of_magnetizability: {description: atomic unit of magnetizability, uncertainty: 9.0e-38,
+  unit: J T^-2, value: 7.8910365886e-29}
+atomic_unit_of_mass: {description: atomic unit of mass, uncertainty: 1.1e-38, unit: kg,
+  value: 9.10938356e-31}
+atomic_unit_of_mom.um: {description: atomic unit of mom.um, uncertainty: 2.4e-32,
+  unit: kg m s^-1, value: 1.992851882e-24}
+atomic_unit_of_permittivity: {description: atomic unit of permittivity, uncertainty: 0.0,
+  unit: F m^-1, value: 1.112650056e-10}
+atomic_unit_of_time: {description: atomic unit of time, uncertainty: 1.4e-28, unit: s,
+  value: 2.418884326509e-17}
+atomic_unit_of_velocity: {description: atomic unit of velocity, uncertainty: 0.0005,
+  unit: m s^-1, value: 2187691.26277}
+characteristic_impedance_of_vacuum: {description: characteristic impedance of vacuum,
+  uncertainty: 0.0, unit: ohm, value: 376.730313461}
+classical_electron_radius: {description: classical electron radius, uncertainty: 1.9e-24,
+  unit: m, value: 2.8179403227e-15}
+conductance_quantum: {description: conductance quantum, uncertainty: 1.8e-14, unit: S,
+  value: 7.748091731e-05}
+conventional_value_of_Josephson_constant: {description: conventional value of Josephson
+    constant, uncertainty: 0.0, unit: Hz V^-1, value: 483597900000000.0}
+conventional_value_of_von_Klitzing_constant: {description: conventional value of von
+    Klitzing constant, uncertainty: 0.0, unit: ohm, value: 25812.807}
+deuteron-electron_mag._mom._ratio: {description: deuteron-electron mag. mom. ratio,
+  uncertainty: 2.6e-12, unit: '', value: -0.0004664345535}
+deuteron-electron_mass_ratio: {description: deuteron-electron mass ratio, uncertainty: 1.3e-07,
+  unit: '', value: 3670.48296785}
+deuteron-neutron_mag._mom._ratio: {description: deuteron-neutron mag. mom. ratio,
+  uncertainty: 1.1e-07, unit: '', value: -0.44820652}
+deuteron-proton_mag._mom._ratio: {description: deuteron-proton mag. mom. ratio, uncertainty: 1.5e-09,
+  unit: '', value: 0.3070122077}
+deuteron-proton_mass_ratio: {description: deuteron-proton mass ratio, uncertainty: 1.9e-10,
+  unit: '', value: 1.99900750087}
+deuteron_g_factor: {description: deuteron g factor, uncertainty: 4.8e-09, unit: '',
+  value: 0.8574382311}
+deuteron_mag._mom.: {description: deuteron mag. mom., uncertainty: 3.6e-35, unit: J
+    T^-1, value: 4.33073504e-27}
+deuteron_mag._mom._to_Bohr_magneton_ratio: {description: deuteron mag. mom. to Bohr
+    magneton ratio, uncertainty: 2.6e-12, unit: '', value: 0.0004669754554}
+deuteron_mag._mom._to_nuclear_magneton_ratio: {description: deuteron mag. mom. to
+    nuclear magneton ratio, uncertainty: 4.8e-09, unit: '', value: 0.8574382311}
+deuteron_mass: {description: deuteron mass, uncertainty: 4.1e-35, unit: kg, value: 3.343583719e-27}
+deuteron_mass_energy_equivalent: {description: deuteron mass energy equivalent, uncertainty: 3.7e-18,
+  unit: J, value: 3.005063183e-10}
+deuteron_mass_energy_equivalent_in_MeV: {description: deuteron mass energy equivalent
+    in MeV, uncertainty: 1.2e-05, unit: MeV, value: 1875.612928}
+deuteron_mass_in_u: {description: deuteron mass in u, uncertainty: 4.0e-11, unit: u,
+  value: 2.013553212745}
+deuteron_molar_mass: {description: deuteron molar mass, uncertainty: 4.0e-14, unit: kg
+    mol^-1, value: 0.002013553212745}
+deuteron_rms_charge_radius: {description: deuteron rms charge radius, uncertainty: 2.5e-18,
+  unit: m, value: 2.1413e-15}
+electric_constant: {description: electric constant, uncertainty: 0.0, unit: F m^-1,
+  value: 8.854187817e-12}
+electron-deuteron_mag._mom._ratio: {description: electron-deuteron mag. mom. ratio,
+  uncertainty: 1.2e-05, unit: '', value: -2143.923499}
+electron-deuteron_mass_ratio: {description: electron-deuteron mass ratio, uncertainty: 9.6e-15,
+  unit: '', value: 0.0002724437107484}
+electron-helion_mass_ratio: {description: electron-helion mass ratio, uncertainty: 8.8e-15,
+  unit: '', value: 0.0001819543074854}
+electron-muon_mag._mom._ratio: {description: electron-muon mag. mom. ratio, uncertainty: 4.6e-06,
+  unit: '', value: 206.766988}
+electron-muon_mass_ratio: {description: electron-muon mass ratio, uncertainty: 1.1e-10,
+  unit: '', value: 0.0048363317}
+electron-neutron_mag._mom._ratio: {description: electron-neutron mag. mom. ratio,
+  uncertainty: 0.00023, unit: '', value: 960.9205}
+electron-neutron_mass_ratio: {description: electron-neutron mass ratio, uncertainty: 2.7e-13,
+  unit: '', value: 0.00054386734428}
+electron-proton_mag._mom._ratio: {description: electron-proton mag. mom. ratio, uncertainty: 2.0e-06,
+  unit: '', value: -658.2106866}
+electron-proton_mass_ratio: {description: electron-proton mass ratio, uncertainty: 5.2e-14,
+  unit: '', value: 0.000544617021352}
+electron-tau_mass_ratio: {description: electron-tau mass ratio, uncertainty: 2.6e-08,
+  unit: '', value: 0.000287592}
+electron-triton_mass_ratio: {description: electron-triton mass ratio, uncertainty: 8.4e-15,
+  unit: '', value: 0.0001819200062203}
+electron_charge_to_mass_quotient: {description: electron charge to mass quotient,
+  uncertainty: 1100.0, unit: C kg^-1, value: -175882002400.0}
+electron_g_factor: {description: electron g factor, uncertainty: 5.2e-13, unit: '',
+  value: -2.00231930436182}
+electron_gyromag._ratio: {description: electron gyromag. ratio, uncertainty: 1100.0,
+  unit: s^-1 T^-1, value: 176085964400.0}
+electron_gyromag._ratio_over_2_pi: {description: electron gyromag. ratio over 2 pi,
+  uncertainty: 0.00017, unit: MHz T^-1, value: 28024.95164}
+electron_mag._mom.: {description: electron mag. mom., uncertainty: 5.7e-32, unit: J
+    T^-1, value: -9.28476462e-24}
+electron_mag._mom._anomaly: {description: electron mag. mom. anomaly, uncertainty: 2.6e-13,
+  unit: '', value: 0.00115965218091}
+electron_mag._mom._to_Bohr_magneton_ratio: {description: electron mag. mom. to Bohr
+    magneton ratio, uncertainty: 2.6e-13, unit: '', value: -1.00115965218091}
+electron_mag._mom._to_nuclear_magneton_ratio: {description: electron mag. mom. to
+    nuclear magneton ratio, uncertainty: 1.7e-07, unit: '', value: -1838.28197234}
+electron_mass: {description: electron mass, uncertainty: 1.1e-38, unit: kg, value: 9.10938356e-31}
+electron_mass_energy_equivalent: {description: electron mass energy equivalent, uncertainty: 1.0e-21,
+  unit: J, value: 8.18710565e-14}
+electron_mass_energy_equivalent_in_MeV: {description: electron mass energy equivalent
+    in MeV, uncertainty: 3.1e-09, unit: MeV, value: 0.5109989461}
+electron_mass_in_u: {description: electron mass in u, uncertainty: 1.6e-14, unit: u,
+  value: 0.00054857990907}
+electron_molar_mass: {description: electron molar mass, uncertainty: 1.6e-17, unit: kg
+    mol^-1, value: 5.4857990907e-07}
+electron_to_alpha_particle_mass_ratio: {description: electron to alpha particle mass
+    ratio, uncertainty: 4.5e-15, unit: '', value: 0.0001370933554798}
+electron_to_shielded_helion_mag._mom._ratio: {description: electron to shielded helion
+    mag. mom. ratio, uncertainty: 1.0e-05, unit: '', value: 864.058257}
+electron_to_shielded_proton_mag._mom._ratio: {description: electron to shielded proton
+    mag. mom. ratio, uncertainty: 7.2e-06, unit: '', value: -658.2275971}
+electron_volt: {description: electron volt, uncertainty: 9.8e-28, unit: J, value: 1.6021766208e-19}
+electron_volt-atomic_mass_unit_relationship: {description: electron volt-atomic mass
+    unit relationship, uncertainty: 6.6e-18, unit: u, value: 1.0735441105e-09}
+electron_volt-hartree_relationship: {description: electron volt-hartree relationship,
+  uncertainty: 2.3e-10, unit: E_h, value: 0.03674932248}
+electron_volt-hertz_relationship: {description: electron volt-hertz relationship,
+  uncertainty: 1500000.0, unit: Hz, value: 241798926200000.0}
+electron_volt-inverse_meter_relationship: {description: electron volt-inverse meter
+    relationship, uncertainty: 0.005, unit: m^-1, value: 806554.4005}
+electron_volt-joule_relationship: {description: electron volt-joule relationship,
+  uncertainty: 9.8e-28, unit: J, value: 1.6021766208e-19}
+electron_volt-kelvin_relationship: {description: electron volt-kelvin relationship,
+  uncertainty: 0.0067, unit: K, value: 11604.5221}
+electron_volt-kilogram_relationship: {description: electron volt-kilogram relationship,
+  uncertainty: 1.1e-44, unit: kg, value: 1.782661907e-36}
+elementary_charge: {description: elementary charge, uncertainty: 9.8e-28, unit: C,
+  value: 1.6021766208e-19}
+elementary_charge_over_h: {description: elementary charge over h, uncertainty: 1500000.0,
+  unit: A J^-1, value: 241798926200000.0}
+fine-structure_constant: {description: fine-structure constant, uncertainty: 1.7e-12,
+  unit: '', value: 0.0072973525664}
+first_radiation_constant: {description: first radiation constant, uncertainty: 4.6e-24,
+  unit: W m^2, value: 3.74177179e-16}
+first_radiation_constant_for_spectral_radiance: {description: first radiation constant
+    for spectral radiance, uncertainty: 1.5e-24, unit: W m^2 sr^-1, value: 1.191042953e-16}
+hartree-atomic_mass_unit_relationship: {description: hartree-atomic mass unit relationship,
+  uncertainty: 1.3e-17, unit: u, value: 2.9212623197e-08}
+hartree-electron_volt_relationship: {description: hartree-electron volt relationship,
+  uncertainty: 1.7e-07, unit: eV, value: 27.21138602}
+hartree-hertz_relationship: {description: hartree-hertz relationship, uncertainty: 39000.0,
+  unit: Hz, value: 6579683920711000.0}
+hartree-inverse_meter_relationship: {description: hartree-inverse meter relationship,
+  uncertainty: 0.00013, unit: m^-1, value: 21947463.13702}
+hartree-joule_relationship: {description: hartree-joule relationship, uncertainty: 5.4e-26,
+  unit: J, value: 4.35974465e-18}
+hartree-kelvin_relationship: {description: hartree-kelvin relationship, uncertainty: 0.18,
+  unit: K, value: 315775.13}
+hartree-kilogram_relationship: {description: hartree-kilogram relationship, uncertainty: 6.0e-43,
+  unit: kg, value: 4.850870129e-35}
+helion-electron_mass_ratio: {description: helion-electron mass ratio, uncertainty: 2.7e-07,
+  unit: '', value: 5495.88527922}
+helion-proton_mass_ratio: {description: helion-proton mass ratio, uncertainty: 2.9e-10,
+  unit: '', value: 2.99315267046}
+helion_g_factor: {description: helion g factor, uncertainty: 5.0e-08, unit: '', value: -4.255250616}
+helion_mag._mom.: {description: helion mag. mom., uncertainty: 1.4e-34, unit: J T^-1,
+  value: -1.074617522e-26}
+helion_mag._mom._to_Bohr_magneton_ratio: {description: helion mag. mom. to Bohr magneton
+    ratio, uncertainty: 1.4e-11, unit: '', value: -0.001158740958}
+helion_mag._mom._to_nuclear_magneton_ratio: {description: helion mag. mom. to nuclear
+    magneton ratio, uncertainty: 2.5e-08, unit: '', value: -2.127625308}
+helion_mass: {description: helion mass, uncertainty: 6.2e-35, unit: kg, value: 5.0064127e-27}
+helion_mass_energy_equivalent: {description: helion mass energy equivalent, uncertainty: 5.5e-18,
+  unit: J, value: 4.499539341e-10}
+helion_mass_energy_equivalent_in_MeV: {description: helion mass energy equivalent
+    in MeV, uncertainty: 1.7e-05, unit: MeV, value: 2808.391586}
+helion_mass_in_u: {description: helion mass in u, uncertainty: 1.2e-10, unit: u, value: 3.01493224673}
+helion_molar_mass: {description: helion molar mass, uncertainty: 1.2e-13, unit: kg
+    mol^-1, value: 0.00301493224673}
+hertz-atomic_mass_unit_relationship: {description: hertz-atomic mass unit relationship,
+  uncertainty: 2.0e-33, unit: u, value: 4.4398216616e-24}
+hertz-electron_volt_relationship: {description: hertz-electron volt relationship,
+  uncertainty: 2.5e-23, unit: eV, value: 4.135667662e-15}
+hertz-hartree_relationship: {description: hertz-hartree relationship, uncertainty: 9.0e-28,
+  unit: E_h, value: 1.5198298460088e-16}
+hertz-inverse_meter_relationship: {description: hertz-inverse meter relationship,
+  uncertainty: 0.0, unit: m^-1, value: 3.335640951e-09}
+hertz-joule_relationship: {description: hertz-joule relationship, uncertainty: 8.1e-42,
+  unit: J, value: 6.62607004e-34}
+hertz-kelvin_relationship: {description: hertz-kelvin relationship, uncertainty: 2.8e-17,
+  unit: K, value: 4.7992447e-11}
+hertz-kilogram_relationship: {description: hertz-kilogram relationship, uncertainty: 9.1e-59,
+  unit: kg, value: 7.372497201e-51}
+inverse_fine-structure_constant: {description: inverse fine-structure constant, uncertainty: 3.1e-08,
+  unit: '', value: 137.035999139}
+inverse_meter-atomic_mass_unit_relationship: {description: inverse meter-atomic mass
+    unit relationship, uncertainty: 6.1e-25, unit: u, value: 1.331025049e-15}
+inverse_meter-electron_volt_relationship: {description: inverse meter-electron volt
+    relationship, uncertainty: 7.6e-15, unit: eV, value: 1.2398419739e-06}
+inverse_meter-hartree_relationship: {description: inverse meter-hartree relationship,
+  uncertainty: 2.7e-19, unit: E_h, value: 4.556335252767e-08}
+inverse_meter-hertz_relationship: {description: inverse meter-hertz relationship,
+  uncertainty: 0.0, unit: Hz, value: 299792458.0}
+inverse_meter-joule_relationship: {description: inverse meter-joule relationship,
+  uncertainty: 2.4e-33, unit: J, value: 1.986445824e-25}
+inverse_meter-kelvin_relationship: {description: inverse meter-kelvin relationship,
+  uncertainty: 8.3e-09, unit: K, value: 0.0143877736}
+inverse_meter-kilogram_relationship: {description: inverse meter-kilogram relationship,
+  uncertainty: 2.7e-50, unit: kg, value: 2.210219057e-42}
+inverse_of_conductance_quantum: {description: inverse of conductance quantum, uncertainty: 2.9e-06,
+  unit: ohm, value: 12906.4037278}
+joule-atomic_mass_unit_relationship: {description: joule-atomic mass unit relationship,
+  uncertainty: 82.0, unit: u, value: 6700535363.0}
+joule-electron_volt_relationship: {description: joule-electron volt relationship,
+  uncertainty: 38000000000.0, unit: eV, value: 6.241509126e+18}
+joule-hartree_relationship: {description: joule-hartree relationship, uncertainty: 2800000000.0,
+  unit: E_h, value: 2.293712317e+17}
+joule-hertz_relationship: {description: joule-hertz relationship, uncertainty: 1.9e+25,
+  unit: Hz, value: 1.509190205e+33}
+joule-inverse_meter_relationship: {description: joule-inverse meter relationship,
+  uncertainty: 6.2e+16, unit: m^-1, value: 5.034116651e+24}
+joule-kelvin_relationship: {description: joule-kelvin relationship, uncertainty: 4.2e+16,
+  unit: K, value: 7.2429731e+22}
+joule-kilogram_relationship: {description: joule-kilogram relationship, uncertainty: 0.0,
+  unit: kg, value: 1.112650056e-17}
+kelvin-atomic_mass_unit_relationship: {description: kelvin-atomic mass unit relationship,
+  uncertainty: 5.3e-20, unit: u, value: 9.2510842e-14}
+kelvin-electron_volt_relationship: {description: kelvin-electron volt relationship,
+  uncertainty: 5.0e-11, unit: eV, value: 8.6173303e-05}
+kelvin-hartree_relationship: {description: kelvin-hartree relationship, uncertainty: 1.8e-12,
+  unit: E_h, value: 3.1668105e-06}
+kelvin-hertz_relationship: {description: kelvin-hertz relationship, uncertainty: 12000.0,
+  unit: Hz, value: 20836612000.0}
+kelvin-inverse_meter_relationship: {description: kelvin-inverse meter relationship,
+  uncertainty: 4.0e-05, unit: m^-1, value: 69.503457}
+kelvin-joule_relationship: {description: kelvin-joule relationship, uncertainty: 7.9e-30,
+  unit: J, value: 1.38064852e-23}
+kelvin-kilogram_relationship: {description: kelvin-kilogram relationship, uncertainty: 8.8e-47,
+  unit: kg, value: 1.53617865e-40}
+kilogram-atomic_mass_unit_relationship: {description: kilogram-atomic mass unit relationship,
+  uncertainty: 7.4e+18, unit: u, value: 6.022140857e+26}
+kilogram-electron_volt_relationship: {description: kilogram-electron volt relationship,
+  uncertainty: 3.4e+27, unit: eV, value: 5.60958865e+35}
+kilogram-hartree_relationship: {description: kilogram-hartree relationship, uncertainty: 2.5e+26,
+  unit: E_h, value: 2.061485823e+34}
+kilogram-hertz_relationship: {description: kilogram-hertz relationship, uncertainty: 1.7e+42,
+  unit: Hz, value: 1.356392512e+50}
+kilogram-inverse_meter_relationship: {description: kilogram-inverse meter relationship,
+  uncertainty: 5.6e+33, unit: m^-1, value: 4.524438411e+41}
+kilogram-joule_relationship: {description: kilogram-joule relationship, uncertainty: 0.0,
+  unit: J, value: 8.987551787e+16}
+kilogram-kelvin_relationship: {description: kilogram-kelvin relationship, uncertainty: 3.7e+33,
+  unit: K, value: 6.5096595e+39}
+lattice_parameter_of_silicon: {description: lattice parameter of silicon, uncertainty: 8.9e-18,
+  unit: m, value: 5.431020504e-10}
+mag._constant: {description: mag. constant, uncertainty: 0.0, unit: N A^-2, value: 1.2566370614e-06}
+mag._flux_quantum: {description: mag. flux quantum, uncertainty: 1.3e-23, unit: Wb,
+  value: 2.067833831e-15}
+molar_Planck_constant: {description: molar Planck constant, uncertainty: 1.8e-19,
+  unit: J s mol^-1, value: 3.990312711e-10}
+molar_Planck_constant_times_c: {description: molar Planck constant times c, uncertainty: 5.4e-11,
+  unit: J m mol^-1, value: 0.119626565582}
+molar_gas_constant: {description: molar gas constant, uncertainty: 4.8e-06, unit: J
+    mol^-1 K^-1, value: 8.3144598}
+molar_mass_constant: {description: molar mass constant, uncertainty: 0.0, unit: kg
+    mol^-1, value: 0.001}
+molar_mass_of_carbon-12: {description: molar mass of carbon-12, uncertainty: 0.0,
+  unit: kg mol^-1, value: 0.012}
+molar_volume_of_ideal_gas_(273.15_K,_100_kPa): {description: 'molar volume of ideal
+    gas (273.15 K, 100 kPa)', uncertainty: 1.3e-08, unit: m^3 mol^-1, value: 0.022710947}
+molar_volume_of_ideal_gas_(273.15_K,_101.325_kPa): {description: 'molar volume of
+    ideal gas (273.15 K, 101.325 kPa)', uncertainty: 1.3e-08, unit: m^3 mol^-1, value: 0.022413962}
+molar_volume_of_silicon: {description: molar volume of silicon, uncertainty: 6.1e-13,
+  unit: m^3 mol^-1, value: 1.205883214e-05}
+muon-electron_mass_ratio: {description: muon-electron mass ratio, uncertainty: 4.6e-06,
+  unit: '', value: 206.7682826}
+muon-neutron_mass_ratio: {description: muon-neutron mass ratio, uncertainty: 2.5e-09,
+  unit: '', value: 0.1124545167}
+muon-proton_mag._mom._ratio: {description: muon-proton mag. mom. ratio, uncertainty: 7.1e-08,
+  unit: '', value: -3.183345142}
+muon-proton_mass_ratio: {description: muon-proton mass ratio, uncertainty: 2.5e-09,
+  unit: '', value: 0.1126095262}
+muon-tau_mass_ratio: {description: muon-tau mass ratio, uncertainty: 5.4e-06, unit: '',
+  value: 0.0594649}
+muon_Compton_wavelength: {description: muon Compton wavelength, uncertainty: 2.6e-22,
+  unit: m, value: 1.173444111e-14}
+muon_Compton_wavelength_over_2_pi: {description: muon Compton wavelength over 2 pi,
+  uncertainty: 4.2e-23, unit: m, value: 1.867594308e-15}
+muon_g_factor: {description: muon g factor, uncertainty: 1.3e-09, unit: '', value: -2.0023318418}
+muon_mag._mom.: {description: muon mag. mom., uncertainty: 1.0e-33, unit: J T^-1,
+  value: -4.49044826e-26}
+muon_mag._mom._anomaly: {description: muon mag. mom. anomaly, uncertainty: 6.3e-10,
+  unit: '', value: 0.00116592089}
+muon_mag._mom._to_Bohr_magneton_ratio: {description: muon mag. mom. to Bohr magneton
+    ratio, uncertainty: 1.1e-10, unit: '', value: -0.00484197048}
+muon_mag._mom._to_nuclear_magneton_ratio: {description: muon mag. mom. to nuclear
+    magneton ratio, uncertainty: 2.0e-07, unit: '', value: -8.89059705}
+muon_mass: {description: muon mass, uncertainty: 4.8e-36, unit: kg, value: 1.883531594e-28}
+muon_mass_energy_equivalent: {description: muon mass energy equivalent, uncertainty: 4.3e-19,
+  unit: J, value: 1.692833774e-11}
+muon_mass_energy_equivalent_in_MeV: {description: muon mass energy equivalent in MeV,
+  uncertainty: 2.4e-06, unit: MeV, value: 105.6583745}
+muon_mass_in_u: {description: muon mass in u, uncertainty: 2.5e-09, unit: u, value: 0.1134289257}
+muon_molar_mass: {description: muon molar mass, uncertainty: 2.5e-12, unit: kg mol^-1,
+  value: 0.0001134289257}
+natural_unit_of_action: {description: natural unit of action, uncertainty: 1.3e-42,
+  unit: J s, value: 1.0545718e-34}
+natural_unit_of_action_in_eV_s: {description: natural unit of action in eV s, uncertainty: 4.0e-24,
+  unit: eV s, value: 6.582119514e-16}
+natural_unit_of_energy: {description: natural unit of energy, uncertainty: 1.0e-21,
+  unit: J, value: 8.18710565e-14}
+natural_unit_of_energy_in_MeV: {description: natural unit of energy in MeV, uncertainty: 3.1e-09,
+  unit: MeV, value: 0.5109989461}
+natural_unit_of_length: {description: natural unit of length, uncertainty: 1.8e-22,
+  unit: m, value: 3.8615926764e-13}
+natural_unit_of_mass: {description: natural unit of mass, uncertainty: 1.1e-38, unit: kg,
+  value: 9.10938356e-31}
+natural_unit_of_mom.um: {description: natural unit of mom.um, uncertainty: 3.4e-30,
+  unit: kg m s^-1, value: 2.730924488e-22}
+natural_unit_of_mom.um_in_MeV_per_c: {description: natural unit of mom.um in MeV/c,
+  uncertainty: 3.1e-09, unit: MeV/c, value: 0.5109989461}
+natural_unit_of_time: {description: natural unit of time, uncertainty: 5.8e-31, unit: s,
+  value: 1.28808866712e-21}
+natural_unit_of_velocity: {description: natural unit of velocity, uncertainty: 0.0,
+  unit: m s^-1, value: 299792458.0}
+neutron-electron_mag._mom._ratio: {description: neutron-electron mag. mom. ratio,
+  uncertainty: 2.5e-10, unit: '', value: 0.00104066882}
+neutron-electron_mass_ratio: {description: neutron-electron mass ratio, uncertainty: 9.0e-07,
+  unit: '', value: 1838.68366158}
+neutron-muon_mass_ratio: {description: neutron-muon mass ratio, uncertainty: 2.0e-07,
+  unit: '', value: 8.89248408}
+neutron-proton_mag._mom._ratio: {description: neutron-proton mag. mom. ratio, uncertainty: 1.6e-07,
+  unit: '', value: -0.68497934}
+neutron-proton_mass_difference: {description: neutron-proton mass difference, uncertainty: 8.5e-37,
+  unit: '', value: 2.30557377e-30}
+neutron-proton_mass_difference_energy_equivalent: {description: neutron-proton mass
+    difference energy equivalent, uncertainty: 7.6e-20, unit: '', value: 2.07214637e-13}
+neutron-proton_mass_difference_energy_equivalent_in_MeV: {description: neutron-proton
+    mass difference energy equivalent in MeV, uncertainty: 4.8e-07, unit: '', value: 1.29333205}
+neutron-proton_mass_difference_in_u: {description: neutron-proton mass difference
+    in u, uncertainty: 5.1e-10, unit: '', value: 0.001388449}
+neutron-proton_mass_ratio: {description: neutron-proton mass ratio, uncertainty: 5.1e-10,
+  unit: '', value: 1.00137841898}
+neutron-tau_mass_ratio: {description: neutron-tau mass ratio, uncertainty: 4.8e-05,
+  unit: '', value: 0.52879}
+neutron_Compton_wavelength: {description: neutron Compton wavelength, uncertainty: 8.8e-25,
+  unit: m, value: 1.31959090481e-15}
+neutron_Compton_wavelength_over_2_pi: {description: neutron Compton wavelength over
+    2 pi, uncertainty: 1.4e-25, unit: m, value: 2.1001941536e-16}
+neutron_g_factor: {description: neutron g factor, uncertainty: 9.0e-07, unit: '',
+  value: -3.82608545}
+neutron_gyromag._ratio: {description: neutron gyromag. ratio, uncertainty: 43.0, unit: s^-1
+    T^-1, value: 183247172.0}
+neutron_gyromag._ratio_over_2_pi: {description: neutron gyromag. ratio over 2 pi,
+  uncertainty: 6.9e-06, unit: MHz T^-1, value: 29.1646933}
+neutron_mag._mom.: {description: neutron mag. mom., uncertainty: 2.3e-33, unit: J
+    T^-1, value: -9.662365e-27}
+neutron_mag._mom._to_Bohr_magneton_ratio: {description: neutron mag. mom. to Bohr
+    magneton ratio, uncertainty: 2.5e-10, unit: '', value: -0.00104187563}
+neutron_mag._mom._to_nuclear_magneton_ratio: {description: neutron mag. mom. to nuclear
+    magneton ratio, uncertainty: 4.5e-07, unit: '', value: -1.91304273}
+neutron_mass: {description: neutron mass, uncertainty: 2.1e-35, unit: kg, value: 1.674927471e-27}
+neutron_mass_energy_equivalent: {description: neutron mass energy equivalent, uncertainty: 1.9e-18,
+  unit: J, value: 1.505349739e-10}
+neutron_mass_energy_equivalent_in_MeV: {description: neutron mass energy equivalent
+    in MeV, uncertainty: 5.8e-06, unit: MeV, value: 939.5654133}
+neutron_mass_in_u: {description: neutron mass in u, uncertainty: 4.9e-10, unit: u,
+  value: 1.00866491588}
+neutron_molar_mass: {description: neutron molar mass, uncertainty: 4.9e-13, unit: kg
+    mol^-1, value: 0.00100866491588}
+neutron_to_shielded_proton_mag._mom._ratio: {description: neutron to shielded proton
+    mag. mom. ratio, uncertainty: 1.6e-07, unit: '', value: -0.68499694}
+nuclear_magneton: {description: nuclear magneton, uncertainty: 3.1e-35, unit: J T^-1,
+  value: 5.050783699e-27}
+nuclear_magneton_in_K_per_T: {description: nuclear magneton in K/T, uncertainty: 2.1e-10,
+  unit: K T^-1, value: 0.0003658269}
+nuclear_magneton_in_MHz_per_T: {description: nuclear magneton in MHz/T, uncertainty: 4.7e-08,
+  unit: MHz T^-1, value: 7.622593285}
+nuclear_magneton_in_eV_per_T: {description: nuclear magneton in eV/T, uncertainty: 1.5e-17,
+  unit: eV T^-1, value: 3.152451255e-08}
+nuclear_magneton_in_inverse_meters_per_tesla: {description: nuclear magneton in inverse
+    meters per tesla, uncertainty: 1.6e-10, unit: m^-1 T^-1, value: 0.02542623432}
+proton-electron_mass_ratio: {description: proton-electron mass ratio, uncertainty: 1.7e-07,
+  unit: '', value: 1836.15267389}
+proton-muon_mass_ratio: {description: proton-muon mass ratio, uncertainty: 2.0e-07,
+  unit: '', value: 8.88024338}
+proton-neutron_mag._mom._ratio: {description: proton-neutron mag. mom. ratio, uncertainty: 3.4e-07,
+  unit: '', value: -1.45989805}
+proton-neutron_mass_ratio: {description: proton-neutron mass ratio, uncertainty: 5.1e-10,
+  unit: '', value: 0.99862347844}
+proton-tau_mass_ratio: {description: proton-tau mass ratio, uncertainty: 4.8e-05,
+  unit: '', value: 0.528063}
+proton_Compton_wavelength: {description: proton Compton wavelength, uncertainty: 6.1e-25,
+  unit: m, value: 1.32140985396e-15}
+proton_Compton_wavelength_over_2_pi: {description: proton Compton wavelength over
+    2 pi, uncertainty: 9.7e-26, unit: m, value: 2.10308910109e-16}
+proton_charge_to_mass_quotient: {description: proton charge to mass quotient, uncertainty: 0.59,
+  unit: C kg^-1, value: 95788332.26}
+proton_g_factor: {description: proton g factor, uncertainty: 1.7e-08, unit: '', value: 5.585694702}
+proton_gyromag._ratio: {description: proton gyromag. ratio, uncertainty: 1.8, unit: s^-1
+    T^-1, value: 267522190.0}
+proton_gyromag._ratio_over_2_pi: {description: proton gyromag. ratio over 2 pi, uncertainty: 2.9e-07,
+  unit: MHz T^-1, value: 42.57747892}
+proton_mag._mom.: {description: proton mag. mom., uncertainty: 9.7e-35, unit: J T^-1,
+  value: 1.4106067873e-26}
+proton_mag._mom._to_Bohr_magneton_ratio: {description: proton mag. mom. to Bohr magneton
+    ratio, uncertainty: 4.6e-12, unit: '', value: 0.0015210322053}
+proton_mag._mom._to_nuclear_magneton_ratio: {description: proton mag. mom. to nuclear
+    magneton ratio, uncertainty: 8.5e-09, unit: '', value: 2.7928473508}
+proton_mag._shielding_correction: {description: proton mag. shielding correction,
+  uncertainty: 1.1e-08, unit: '', value: 2.5691e-05}
+proton_mass: {description: proton mass, uncertainty: 2.1e-35, unit: kg, value: 1.672621898e-27}
+proton_mass_energy_equivalent: {description: proton mass energy equivalent, uncertainty: 1.8e-18,
+  unit: J, value: 1.503277593e-10}
+proton_mass_energy_equivalent_in_MeV: {description: proton mass energy equivalent
+    in MeV, uncertainty: 5.8e-06, unit: MeV, value: 938.2720813}
+proton_mass_in_u: {description: proton mass in u, uncertainty: 9.1e-11, unit: u, value: 1.007276466879}
+proton_molar_mass: {description: proton molar mass, uncertainty: 9.1e-14, unit: kg
+    mol^-1, value: 0.001007276466879}
+proton_rms_charge_radius: {description: proton rms charge radius, uncertainty: 6.1e-18,
+  unit: m, value: 8.751e-16}
+quantum_of_circulation: {description: quantum of circulation, uncertainty: 1.7e-13,
+  unit: m^2 s^-1, value: 0.00036369475486}
+quantum_of_circulation_times_2: {description: quantum of circulation times 2, uncertainty: 3.3e-13,
+  unit: m^2 s^-1, value: 0.00072738950972}
+second_radiation_constant: {description: second radiation constant, uncertainty: 8.3e-09,
+  unit: m K, value: 0.0143877736}
+shielded_helion_gyromag._ratio: {description: shielded helion gyromag. ratio, uncertainty: 2.7,
+  unit: s^-1 T^-1, value: 203789458.5}
+shielded_helion_gyromag._ratio_over_2_pi: {description: shielded helion gyromag. ratio
+    over 2 pi, uncertainty: 4.3e-07, unit: MHz T^-1, value: 32.43409966}
+shielded_helion_mag._mom.: {description: shielded helion mag. mom., uncertainty: 1.4e-34,
+  unit: J T^-1, value: -1.07455308e-26}
+shielded_helion_mag._mom._to_Bohr_magneton_ratio: {description: shielded helion mag.
+    mom. to Bohr magneton ratio, uncertainty: 1.4e-11, unit: '', value: -0.001158671471}
+shielded_helion_mag._mom._to_nuclear_magneton_ratio: {description: shielded helion
+    mag. mom. to nuclear magneton ratio, uncertainty: 2.5e-08, unit: '', value: -2.12749772}
+shielded_helion_to_proton_mag._mom._ratio: {description: shielded helion to proton
+    mag. mom. ratio, uncertainty: 9.2e-09, unit: '', value: -0.7617665603}
+shielded_helion_to_shielded_proton_mag._mom._ratio: {description: shielded helion
+    to shielded proton mag. mom. ratio, uncertainty: 3.3e-09, unit: '', value: -0.7617861313}
+shielded_proton_gyromag._ratio: {description: shielded proton gyromag. ratio, uncertainty: 3.3,
+  unit: s^-1 T^-1, value: 267515317.1}
+shielded_proton_gyromag._ratio_over_2_pi: {description: shielded proton gyromag. ratio
+    over 2 pi, uncertainty: 5.3e-07, unit: MHz T^-1, value: 42.57638507}
+shielded_proton_mag._mom.: {description: shielded proton mag. mom., uncertainty: 1.8e-34,
+  unit: J T^-1, value: 1.410570547e-26}
+shielded_proton_mag._mom._to_Bohr_magneton_ratio: {description: shielded proton mag.
+    mom. to Bohr magneton ratio, uncertainty: 1.7e-11, unit: '', value: 0.001520993128}
+shielded_proton_mag._mom._to_nuclear_magneton_ratio: {description: shielded proton
+    mag. mom. to nuclear magneton ratio, uncertainty: 3.0e-08, unit: '', value: 2.7927756}
+speed_of_light_in_vacuum: {description: speed of light in vacuum, uncertainty: 0.0,
+  unit: m s^-1, value: 299792458.0}
+standard-state_pressure: {description: standard-state pressure, uncertainty: 0.0,
+  unit: Pa, value: 100000.0}
+standard_acceleration_of_gravity: {description: standard acceleration of gravity,
+  uncertainty: 0.0, unit: m s^-2, value: 9.80665}
+standard_atmosphere: {description: standard atmosphere, uncertainty: 0.0, unit: Pa,
+  value: 101325.0}
+tau-electron_mass_ratio: {description: tau-electron mass ratio, uncertainty: 0.31,
+  unit: '', value: 3477.15}
+tau-muon_mass_ratio: {description: tau-muon mass ratio, uncertainty: 0.0015, unit: '',
+  value: 16.8167}
+tau-neutron_mass_ratio: {description: tau-neutron mass ratio, uncertainty: 0.00017,
+  unit: '', value: 1.89111}
+tau-proton_mass_ratio: {description: tau-proton mass ratio, uncertainty: 0.00017,
+  unit: '', value: 1.89372}
+tau_Compton_wavelength: {description: tau Compton wavelength, uncertainty: 6.3e-20,
+  unit: m, value: 6.97787e-16}
+tau_Compton_wavelength_over_2_pi: {description: tau Compton wavelength over 2 pi,
+  uncertainty: 1.0e-20, unit: m, value: 1.11056e-16}
+tau_mass: {description: tau mass, uncertainty: 2.9e-31, unit: kg, value: 3.16747e-27}
+tau_mass_energy_equivalent: {description: tau mass energy equivalent, uncertainty: 2.6e-14,
+  unit: J, value: 2.84678e-10}
+tau_mass_energy_equivalent_in_MeV: {description: tau mass energy equivalent in MeV,
+  uncertainty: 0.16, unit: MeV, value: 1776.82}
+tau_mass_in_u: {description: tau mass in u, uncertainty: 0.00017, unit: u, value: 1.90749}
+tau_molar_mass: {description: tau molar mass, uncertainty: 1.7e-07, unit: kg mol^-1,
+  value: 0.00190749}
+triton-electron_mass_ratio: {description: triton-electron mass ratio, uncertainty: 2.6e-07,
+  unit: '', value: 5496.92153588}
+triton-proton_mass_ratio: {description: triton-proton mass ratio, uncertainty: 2.2e-10,
+  unit: '', value: 2.99371703348}
+triton_g_factor: {description: triton g factor, uncertainty: 2.8e-08, unit: '', value: 5.95792492}
+triton_mag._mom.: {description: triton mag. mom., uncertainty: 1.2e-34, unit: J T^-1,
+  value: 1.504609503e-26}
+triton_mag._mom._to_Bohr_magneton_ratio: {description: triton mag. mom. to Bohr magneton
+    ratio, uncertainty: 7.6e-12, unit: '', value: 0.0016223936616}
+triton_mag._mom._to_nuclear_magneton_ratio: {description: triton mag. mom. to nuclear
+    magneton ratio, uncertainty: 1.4e-08, unit: '', value: 2.97896246}
+triton_mass: {description: triton mass, uncertainty: 6.2e-35, unit: kg, value: 5.007356665e-27}
+triton_mass_energy_equivalent: {description: triton mass energy equivalent, uncertainty: 5.5e-18,
+  unit: J, value: 4.500387735e-10}
+triton_mass_energy_equivalent_in_MeV: {description: triton mass energy equivalent
+    in MeV, uncertainty: 1.7e-05, unit: MeV, value: 2808.921112}
+triton_mass_in_u: {description: triton mass in u, uncertainty: 1.1e-10, unit: u, value: 3.01550071632}
+triton_molar_mass: {description: triton molar mass, uncertainty: 1.1e-13, unit: kg
+    mol^-1, value: 0.00301550071632}
+unified_atomic_mass_unit: {description: unified atomic mass unit, uncertainty: 2.0e-35,
+  unit: kg, value: 1.66053904e-27}
+von_Klitzing_constant: {description: von Klitzing constant, uncertainty: 5.9e-06,
+  unit: ohm, value: 25812.8074555}
+weak_mixing_angle: {description: weak mixing angle, uncertainty: 0.0021, unit: '',
+  value: 0.2223}
