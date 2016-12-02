@@ -112,9 +112,9 @@ Z,Type,Sy,Name,Group,Period,Density [g/cm3],Melt [K],Boil [K],Heat [J(g*K)],EN,A
 110,unknown,Ds,Darmstadtium,10,7,34.8, – , – , – , – ,0, – ,128,116,112, – ,[Rn] 5f<sup>14</sup> 6d<sup>8</sup> 7s<sup>2</sup>
 111,unknown,Rg,Roentgenium,11,7,28.7, – , – , – , – ,0, – ,121,116,118, – ,[Rn] 5f<sup>14</sup> 6d<sup>9</sup> 7s<sup>2</sup>
 112,transition metal,Cn,Copernicium,12,7,23.7, – ,357, – , – ,0, – ,122,137,130, – ,[Rn] 5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup>
-113,unknown,Uut,Ununtrium,13,7,16,700,1400, – , – ,0, – ,136, – , – , – ,[Rn] 5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>1</sup>
+113,unknown,Nh,Nihonium,13,7,16,700,1400, – , – ,0, – ,136, – , – , – ,[Rn] 5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>1</sup>
 114,post-transition metal,Fl,Flerovium,14,7,14,340,420, – , – ,0, – ,143, – , – , – ,[Rn] 5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>2</sup>
-115,unknown,Uup,Ununpentium,15,7,13.5,700,1400, – , – ,0, – ,162, – , – , – ,[Rn] 5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>3</sup>
+115,unknown,Mc,Moscovium,15,7,13.5,700,1400, – , – ,0, – ,162, – , – , – ,[Rn] 5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>3</sup>
 116,unknown,Lv,Livermorium,16,7,12.9,708.5,1085, – , – ,0, – ,175, – , – , – ,[Rn] 5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>4</sup>
-117,unknown,Uus,Ununseptium,17,7,7.2,723,883, – , – ,0, – ,165, – , – , – ,[Rn] 5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>5</sup>
-118,unknown,Uuo,Ununoctium,18,7,5,258,263, – , – ,0, – ,157, – , – , – ,[Rn] 5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>6</sup>
+117,unknown,Ts,Tennessine,17,7,7.2,723,883, – , – ,0, – ,165, – , – , – ,[Rn] 5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>5</sup>
+118,unknown,Og,Oganesson,18,7,5,258,263, – , – ,0, – ,157, – , – , – ,[Rn] 5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>6</sup>
